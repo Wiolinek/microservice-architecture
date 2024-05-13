@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
-import { faBars, faEnvelope, faMapLocationDot, faRoad, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Button, Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Toolbar } from '@mui/material';
+import TuneIcon from '@mui/icons-material/Tune';
+import CloseIcon from '@mui/icons-material/Close';
 
 const CustomDrawer = () => {
   const [open, setOpen] = useState(false);
@@ -15,34 +15,22 @@ const CustomDrawer = () => {
       <List sx={{ py: 4, px: 3 }}>
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemIcon>
-              <FontAwesomeIcon icon={faRoad} size="xl" style={{ color: '6d6875' }}/>
-            </ListItemIcon>
-            <ListItemText primary="Rides" />
+            <ListItemText primary="filter 1" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemIcon>
-              <FontAwesomeIcon icon={faMapLocationDot} size="xl" style={{ color: 'b5838d' }}/>
-            </ListItemIcon>
-            <ListItemText primary="Add ride" />
+            <ListItemText primary="filter 2" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemIcon>
-              <FontAwesomeIcon icon={faEnvelope} size="xl" style={{ color: 'ffb4a2' }}/>
-            </ListItemIcon>
-            <ListItemText primary="Inbox" />
+            <ListItemText primary="filter 3" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemIcon>
-              <FontAwesomeIcon icon={faUser} size="xl" style={{ color: 'ffcdb2' }}/>
-            </ListItemIcon>
-            <ListItemText primary="LogIn" />
+            <ListItemText primary="filter 4" />
           </ListItemButton>
         </ListItem>
       </List>
@@ -53,12 +41,12 @@ const CustomDrawer = () => {
   return (
     <div>
       <Button onClick={toggleDrawer(true)}>
-        <FontAwesomeIcon icon={faBars} size="2xl" style={{ color: '#fff' }} />
+        <TuneIcon sx={{ mr: 1, color: '#fff' }} />
       </Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <Toolbar sx={{ bgcolor: 'primary.main' }}>
           <Button onClick={toggleDrawer(false)}>
-            <FontAwesomeIcon icon={faXmark} size="2xl" style={{ color: '#fff' }} />
+            <CloseIcon sx={{ mr: 1, color: '#fff' }} />
           </Button>
         </Toolbar>
         {DrawerList}

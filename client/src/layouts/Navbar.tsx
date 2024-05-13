@@ -1,19 +1,28 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import CustomDrawer from '../components/Drawer';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import CustomMenu from '../components/Menu';
 
 const Navbar = () => {
-
   return (
     <AppBar position="static">
-      <Toolbar variant="dense" sx={{ display: 'flex', justifyContent: "space-between" }}>
+      <Toolbar variant="dense" sx={{ display: 'flex' }}>
         <CustomDrawer />
-        <Box display="flex" alignItems="center" gap={4} p={2}>
-          <Typography variant="h6" component="p">
+        <CustomMenu />
+        <Box display="flex" alignItems="center" gap={4} p={1} mr={1} ml={'auto'}>
+          <Typography
+            variant="body1"
+            component="p"
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.1rem',
+              textTransform: 'uppercase',
+            }}>
             Share Your Ride
           </Typography>
-          <FontAwesomeIcon icon={faCar} size="2xl" /*bounce*/ />
+          <DirectionsCarIcon sx={{ mr: 1 }} />
         </Box>
       </Toolbar>
     </AppBar>
