@@ -14,6 +14,7 @@ import MapIcon from '@mui/icons-material/Map';
 import AddRoadIcon from '@mui/icons-material/AddRoad';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
+import { Link } from 'react-router-dom';
 
 const CustomMenu = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -53,38 +54,61 @@ const CustomMenu = () => {
           }}>
           <MenuItem onClick={handleCloseNavMenu}>
             <MapIcon sx={{ display: { xs: 'flex', md: 'none', color: '6d6875' }, mr: 2 }} />
-            <Typography textAlign="center">Rides</Typography>
+            <Typography textAlign="center">
+              <Link to={'/'} style={{ textDecoration: 'none', color: '#000' }}>
+                Rides
+              </Link>
+            </Typography>
           </MenuItem>
           <MenuItem onClick={handleCloseNavMenu}>
             <AddRoadIcon sx={{ display: { xs: 'flex', md: 'none', color: 'b5838d' }, mr: 2 }} />
-            <Typography textAlign="center">Add ride</Typography>
+            <Typography textAlign="center">
+              <Link to={'/add-ride'} style={{ textDecoration: 'none', color: '#000' }}>
+                Add ride
+              </Link>
+            </Typography>
           </MenuItem>
           <MenuItem onClick={handleCloseNavMenu}>
             <EmailIcon sx={{ display: { xs: 'flex', md: 'none', color: 'ffb4a2' }, mr: 2 }} />
-            <Typography textAlign="center">Inbox</Typography>
+            <Typography textAlign="center">
+              <Link to={'/inbox'} style={{ textDecoration: 'none', color: '#000' }}>
+                Inbox
+              </Link>
+            </Typography>
           </MenuItem>
           <MenuItem onClick={handleCloseNavMenu}>
             <PersonIcon sx={{ display: { xs: 'flex', md: 'none', color: 'ffcdb2' }, mr: 2 }} />
-            <Typography textAlign="center">LogIn</Typography>
+            <Typography textAlign="center">
+              <Link to={'/login'} style={{ textDecoration: 'none', color: '#000' }}>
+                LogIn
+              </Link>
+            </Typography>
           </MenuItem>
         </Menu>
       </Box>
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: 16 } }}>
         <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center' }}>
           <MapIcon sx={{ mr: 1 }} />
-          Rides
+          <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+            Rides
+          </Link>
         </Button>
-        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center'  }}>
+        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center' }}>
           <AddRoadIcon sx={{ mr: 1 }} />
-          Add ride
+          <Link to={'/add-ride'} style={{ textDecoration: 'none', color: 'inherit' }}>
+            Add ride
+          </Link>
         </Button>
-        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center'  }}>
-          <EmailIcon sx={{ mr: 1 }} />
-          Inbox
+        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center' }}>
+          <Link to={'/inbox'} style={{ textDecoration: 'none', color: 'inherit' }}>
+            Inbox
+          </Link>
         </Button>
-        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center'  }}>
+        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center' }}>
           <PersonIcon sx={{ mr: 1 }} />
-          LogIn
+          <Link to={'/login'} style={{ textDecoration: 'none', color: 'inherit' }}>
+            LogIn
+          </Link>
         </Button>
       </Box>
     </Toolbar>
