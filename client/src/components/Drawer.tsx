@@ -1,7 +1,15 @@
 import { useState } from 'react';
-import { Button, Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Toolbar } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Toolbar from '@mui/material/Toolbar';
 import TuneIcon from '@mui/icons-material/Tune';
 import CloseIcon from '@mui/icons-material/Close';
+import Divider from '@mui/material/Divider';
 
 const CustomDrawer = () => {
   const [open, setOpen] = useState(false);
@@ -12,7 +20,7 @@ const CustomDrawer = () => {
 
   const DrawerList = (
     <Box sx={{ width: 270 }} role="menu" onClick={toggleDrawer(false)}>
-      <List sx={{ py: 4, px: 3 }}>
+      <List sx={{ py: 4, px: 2 }}>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary="filter 1" />
@@ -40,14 +48,14 @@ const CustomDrawer = () => {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>
-        <TuneIcon sx={{ mr: 1, color: '#fff' }} />
-      </Button>
+      <IconButton aria-label="open filters" onClick={toggleDrawer(true)}>
+        <TuneIcon sx={{ color: 'primary.main', minWidth: 'unset' }} />
+      </IconButton>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <Toolbar sx={{ bgcolor: 'primary.main' }}>
-          <Button onClick={toggleDrawer(false)}>
-            <CloseIcon sx={{ mr: 1, color: '#fff' }} />
-          </Button>
+          <IconButton aria-label="close filters" onClick={toggleDrawer(false)}>
+            <CloseIcon sx={{ color: '#fff', minWidth: 'unset' }} />
+          </IconButton>
         </Toolbar>
         {DrawerList}
       </Drawer>

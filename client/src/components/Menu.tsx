@@ -1,20 +1,24 @@
 import { useState, MouseEvent } from 'react';
-// import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-// import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-// import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MapIcon from '@mui/icons-material/Map';
 import AddRoadIcon from '@mui/icons-material/AddRoad';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+const navLinkStyleDesktop = {
+  textDecoration: 'none',
+  color: 'primary.main',
+  display: 'flex',
+  alignItems: 'center',
+  width: 136,
+};
 
 const CustomMenu = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -28,12 +32,16 @@ const CustomMenu = () => {
   };
 
   return (
-    // <AppBar position="static">
-    //   <Container maxWidth="xl">
-    <Toolbar sx={{ ml: 2 }}>
+    <Toolbar sx={{ ml: { xs: 'auto', md: 0 }, mr: { xs: 0, md: 'auto' } }}>
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-        <IconButton size="large" aria-label="test" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu}>
-          <MenuIcon sx={{ display: { xs: 'flex', md: 'none', color: '#fff' }, mr: 2 }} />
+        <IconButton
+          size="large"
+          color="primary"
+          aria-label="test"
+          aria-controls="menu-appbar"
+          aria-haspopup="true"
+          onClick={handleOpenNavMenu}>
+          <MenuIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: { xs: 0, md: 2 } }} />
         </IconButton>
         <Menu
           id="menu-appbar"
@@ -52,68 +60,83 @@ const CustomMenu = () => {
           sx={{
             display: { xs: 'block', md: 'none' },
           }}>
-          <MenuItem onClick={handleCloseNavMenu}>
-            <MapIcon sx={{ display: { xs: 'flex', md: 'none', color: '6d6875' }, mr: 2 }} />
-            <Typography textAlign="center">
-              <Link to={'/'} style={{ textDecoration: 'none', color: '#000' }}>
-                Rides
-              </Link>
-            </Typography>
+          <MenuItem onClick={handleCloseNavMenu} sx={{ width: '100%' }}>
+            <NavLink to={'/'} style={{ textDecoration: 'none', width: '100%' }}>
+              {({ isActive }) => (
+                <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%' }}>
+                  <MapIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }} />
+                  Rides
+                </Button>
+              )}
+            </NavLink>
+          </MenuItem>
+          <MenuItem onClick={handleCloseNavMenu} sx={{ width: '100%' }}>
+            <NavLink to={'/add-ride'} style={{ textDecoration: 'none', width: '100%' }}>
+              {({ isActive }) => (
+                <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%' }}>
+                  <AddRoadIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }} />
+                  Add ride
+                </Button>
+              )}
+            </NavLink>
+          </MenuItem>
+          <MenuItem onClick={handleCloseNavMenu} sx={{ width: '100%' }}>
+            <NavLink to={'/inbox'} style={{ textDecoration: 'none', width: '100%' }}>
+              {({ isActive }) => (
+                <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%' }}>
+                  <EmailIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }} />
+                  Inbox
+                </Button>
+              )}
+            </NavLink>
           </MenuItem>
           <MenuItem onClick={handleCloseNavMenu}>
-            <AddRoadIcon sx={{ display: { xs: 'flex', md: 'none', color: 'b5838d' }, mr: 2 }} />
-            <Typography textAlign="center">
-              <Link to={'/add-ride'} style={{ textDecoration: 'none', color: '#000' }}>
-                Add ride
-              </Link>
-            </Typography>
-          </MenuItem>
-          <MenuItem onClick={handleCloseNavMenu}>
-            <EmailIcon sx={{ display: { xs: 'flex', md: 'none', color: 'ffb4a2' }, mr: 2 }} />
-            <Typography textAlign="center">
-              <Link to={'/inbox'} style={{ textDecoration: 'none', color: '#000' }}>
-                Inbox
-              </Link>
-            </Typography>
-          </MenuItem>
-          <MenuItem onClick={handleCloseNavMenu}>
-            <PersonIcon sx={{ display: { xs: 'flex', md: 'none', color: 'ffcdb2' }, mr: 2 }} />
-            <Typography textAlign="center">
-              <Link to={'/login'} style={{ textDecoration: 'none', color: '#000' }}>
-                LogIn
-              </Link>
-            </Typography>
+            <NavLink to={'/login'} style={{ textDecoration: 'none', width: '100%' }}>
+              {({ isActive }) => (
+                <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%' }}>
+                  <PersonIcon sx={{ display: { xs: 'inline-flex', md: 'none' }, mr: 2 }} />
+                  LogIn
+                </Button>
+              )}
+            </NavLink>
           </MenuItem>
         </Menu>
       </Box>
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: 16 } }}>
-        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center' }}>
-          <MapIcon sx={{ mr: 1 }} />
-          <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
-            Rides
-          </Link>
-        </Button>
-        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center' }}>
-          <AddRoadIcon sx={{ mr: 1 }} />
-          <Link to={'/add-ride'} style={{ textDecoration: 'none', color: 'inherit' }}>
-            Add ride
-          </Link>
-        </Button>
-        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center' }}>
-          <Link to={'/inbox'} style={{ textDecoration: 'none', color: 'inherit' }}>
-            Inbox
-          </Link>
-        </Button>
-        <Button onClick={handleCloseNavMenu} sx={{ my: 1, color: '#fff', display: 'flex', alignItems: 'center' }}>
-          <PersonIcon sx={{ mr: 1 }} />
-          <Link to={'/login'} style={{ textDecoration: 'none', color: 'inherit' }}>
-            LogIn
-          </Link>
-        </Button>
+        <NavLink to={'/'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+          {({ isActive }) => (
+            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+              <MapIcon sx={{ mr: 1 }} />
+              Rides
+            </Button>
+          )}
+        </NavLink>
+        <NavLink to={'/add-ride'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+          {({ isActive }) => (
+            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+              <AddRoadIcon sx={{ mr: 1 }} />
+              Add ride
+            </Button>
+          )}
+        </NavLink>
+        <NavLink to={'/inbox'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+          {({ isActive }) => (
+            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+              <EmailIcon sx={{ mr: 1 }} />
+              Inbox
+            </Button>
+          )}
+        </NavLink>
+        <NavLink to={'/login'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+          {({ isActive }) => (
+            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+              <PersonIcon sx={{ mr: 1 }} />
+              LogIn
+            </Button>
+          )}
+        </NavLink>
       </Box>
     </Toolbar>
-    //     </Container>
-    //   </AppBar>
   );
 };
 export default CustomMenu;

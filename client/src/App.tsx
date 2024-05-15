@@ -13,10 +13,10 @@ import { Route, Routes } from 'react-router-dom';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#824D74',
+      main: 'rgba(130, 77, 116, 1)',
     },
     secondary: {
-      main: '#BE7B72',
+      main: 'rgba(130, 77, 116, .1)',
     },
   },
 });

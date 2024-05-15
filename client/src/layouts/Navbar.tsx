@@ -1,4 +1,7 @@
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import CustomDrawer from '../components/Drawer';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import CustomMenu from '../components/Menu';
@@ -6,10 +9,10 @@ import CustomMenu from '../components/Menu';
 const Navbar = () => {
   return (
     <AppBar position="static">
-      <Toolbar variant="dense" sx={{ display: 'flex' }}>
+      <Toolbar variant="dense" sx={{ display: 'flex', backgroundColor: '#fff', color: 'primary.main' }}>
         <CustomDrawer />
         <CustomMenu />
-        <Box display="flex" alignItems="center" gap={4} p={1} mr={1} ml={'auto'}>
+        <Box display="flex" alignItems="center" gap={3} p={1}>
           <Typography
             variant="body1"
             component="p"
@@ -22,7 +25,7 @@ const Navbar = () => {
             }}>
             Share Your Ride
           </Typography>
-          <DirectionsCarIcon sx={{ mr: 1 }} />
+          <DirectionsCarIcon />
         </Box>
       </Toolbar>
     </AppBar>
