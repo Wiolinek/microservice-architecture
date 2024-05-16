@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { useState, MouseEvent } from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,6 +22,7 @@ const navLinkStyleDesktop = {
 };
 
 const CustomMenu = () => {
+  const { pathname } = useLocation();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
@@ -80,21 +82,23 @@ const CustomMenu = () => {
               )}
             </NavLink>
           </MenuItem>
-          <MenuItem onClick={handleCloseNavMenu} sx={{ width: '100%' }}>
-            <NavLink to={'/inbox'} style={{ textDecoration: 'none', width: '100%' }}>
-              {({ isActive }) => (
-                <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%' }}>
-                  <EmailIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }} />
-                  Inbox
-                </Button>
-              )}
-            </NavLink>
-          </MenuItem>
+          {pathname.includes('inbox') && (
+            <MenuItem onClick={handleCloseNavMenu} sx={{ width: '100%' }}>
+              <NavLink to={'/inbox'} style={{ textDecoration: 'none', width: '100%' }}>
+                {({ isActive }) => (
+                  <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%' }}>
+                    <EmailIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }} />
+                    Inbox
+                  </Button>
+                )}
+              </NavLink>
+            </MenuItem>
+          )}
           <MenuItem onClick={handleCloseNavMenu}>
             <NavLink to={'/login'} style={{ textDecoration: 'none', width: '100%' }}>
               {({ isActive }) => (
                 <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%' }}>
-                  <PersonIcon sx={{ display: { xs: 'inline-flex', md: 'none' }, mr: 2 }} />
+                  <PersonIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }} />
                   LogIn
                 </Button>
               )}
@@ -119,14 +123,16 @@ const CustomMenu = () => {
             </Button>
           )}
         </NavLink>
-        <NavLink to={'/inbox'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
-          {({ isActive }) => (
-            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
-              <EmailIcon sx={{ mr: 1 }} />
-              Inbox
-            </Button>
-          )}
-        </NavLink>
+        {pathname.includes('inbox') && (
+          <NavLink to={'/inbox'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+            {({ isActive }) => (
+              <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+                <EmailIcon sx={{ mr: 1 }} />
+                Inbox
+              </Button>
+            )}
+          </NavLink>
+        )}
         <NavLink to={'/login'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
           {({ isActive }) => (
             <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
