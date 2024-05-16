@@ -19,6 +19,11 @@ const theme = createTheme({
       main: 'rgba(130, 77, 116, .1)',
     },
   },
+  typography: {
+    fontFamily: [
+      "Urbanist", 'sans-serif'
+    ].join(','),
+  },
 });
 
 const App = () => {
