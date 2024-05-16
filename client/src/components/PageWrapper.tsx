@@ -6,7 +6,10 @@ interface PageWrapperProps {
 
 const PageWrapper = ({ children }: PageWrapperProps) => {
   return (
-    <Container maxWidth={false} disableGutters sx={{ backgroundColor: 'secondary.main', minHeight: 'calc(100vh - 128px)', p: 4 }}>
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{ backgroundColor: 'secondary.main', minHeight: 'calc(100vh - 64px)', px: 4, pt: 16, pb: 12 }}>
       {children}
     </Container>
   );
