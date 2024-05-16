@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,10 +8,12 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import CustomMenu from '../components/Menu';
 
 const Navbar = () => {
+  const { pathname } = useLocation();
+
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar variant="dense" sx={{ display: 'flex', backgroundColor: '#fff', color: 'primary.main' }}>
-        <CustomDrawer />
+        {(pathname === '/') && <CustomDrawer />}
         <CustomMenu />
         <Box display="flex" alignItems="center" gap={3} p={1}>
           <Typography
@@ -18,7 +21,6 @@ const Navbar = () => {
             component="p"
             sx={{
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
               textTransform: 'uppercase',

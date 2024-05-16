@@ -42,19 +42,19 @@ const CustomDrawer = () => {
           </ListItemButton>
         </ListItem>
       </List>
-      <Divider />
+      <Divider aria-hidden="true" />
     </Box>
   );
 
   return (
     <div>
       <IconButton aria-label="open filters" onClick={toggleDrawer(true)}>
-        <TuneIcon sx={{ color: 'primary.main', minWidth: 'unset' }} />
+        <TuneIcon sx={{ color: 'primary.main' }} />
       </IconButton>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <Toolbar sx={{ bgcolor: 'primary.main' }}>
           <IconButton aria-label="close filters" onClick={toggleDrawer(false)}>
-            <CloseIcon sx={{ color: '#fff', minWidth: 'unset' }} />
+            <CloseIcon sx={{ color: '#fff' }} />
           </IconButton>
         </Toolbar>
         {DrawerList}
