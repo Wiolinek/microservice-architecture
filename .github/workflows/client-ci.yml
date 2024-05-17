@@ -10,7 +10,7 @@ on:
     # to the client route and client workflow
     paths:
       - "client/**"
-      - ".github/workflows/ci.yaml"
+      - ".github/workflows/client-ci.yml"
 
 jobs:
   build:
