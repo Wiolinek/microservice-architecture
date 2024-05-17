@@ -1,8 +1,8 @@
+import PageWrapper from '@components/PageWrapper';
+import RidesList from '@components/RidesList';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import PageWrapper from '../components/PageWrapper';
-import RidesList from '../components/RidesList';
 
 const Home = () => {
   return (

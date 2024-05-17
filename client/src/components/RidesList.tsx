@@ -1,4 +1,5 @@
-import RideCard from '../components/RideCard';
+import RideCard from '@components/RideCard';
+import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 
 const rides = [
@@ -66,6 +67,7 @@ const rides = [
 
 const RidesList = () => {
   return (
+    <List>
       <Grid container spacing={3} style={{ marginLeft: -24 }}>
         {rides.map((ride) => (
           <RideCard
@@ -81,6 +83,7 @@ const RidesList = () => {
             photo={ride.photo}></RideCard>
         ))}
       </Grid>
+    </List>
   );
 };
 

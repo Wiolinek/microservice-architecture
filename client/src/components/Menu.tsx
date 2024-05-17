@@ -1,5 +1,5 @@
-import { useLocation } from 'react-router-dom';
 import { useState, MouseEvent } from 'react';
+import { useLocation, NavLink } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -11,7 +11,6 @@ import MapIcon from '@mui/icons-material/Map';
 import AddRoadIcon from '@mui/icons-material/AddRoad';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
-import { NavLink } from 'react-router-dom';
 
 const navLinkStyleDesktop = {
   textDecoration: 'none',

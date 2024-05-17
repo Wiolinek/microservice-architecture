@@ -1,4 +1,4 @@
-import PageWrapper from '../components/PageWrapper';
+import PageWrapper from '@components/PageWrapper';
 import Stack from '@mui/material/Stack';
 
 const LogIn = () => {

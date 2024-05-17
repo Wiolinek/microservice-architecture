@@ -1,11 +1,11 @@
 import { useLocation } from 'react-router-dom';
+import CustomDrawer from '@components/Drawer';
+import CustomMenu from '@components/Menu';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import CustomDrawer from '../components/Drawer';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import CustomMenu from '../components/Menu';
 
 const Navbar = () => {
   const { pathname } = useLocation();
