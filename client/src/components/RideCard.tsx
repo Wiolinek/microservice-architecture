@@ -15,6 +15,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PaidIcon from '@mui/icons-material/Paid';
 
 interface RideCardProps {
+  id: number;
   start: string;
   destination: string;
   startTime: string;
@@ -37,18 +38,18 @@ const generateSeats = (totalSeats: number, freeSeats: number) => {
   const icons = [];
 
   for (let i = 0; i < freeSeats; i++) {
-    icons.push(<PersonIcon sx={{ color: 'green' }} />);
+    icons.push(<PersonIcon key={`${i}-free`} sx={{ color: 'green' }} />);
   }
   for (let i = 0; i < bookedSeats; i++) {
-    icons.push(<PersonIcon sx={{ color: 'grey' }} />);
+    icons.push(<PersonIcon key={`${i}-booked`} sx={{ color: 'grey' }} />);
   }
   return icons;
 };
 
-const RideCard = ({ start, destination, totalSeats, startTime, endTime, freeSeats, price, carMake, photo }: RideCardProps) => {
+const RideCard = ({ id, start, destination, totalSeats, startTime, endTime, freeSeats, price, carMake, photo }: RideCardProps) => {
   return (
     <Grid item xs={12} md={6} xl={4}>
-      <ListItem disableGutters sx={{ display: 'block'}}>
+      <ListItem key={id} disableGutters sx={{ display: 'block' }}>
         <Paper sx={{ p: 2 }}>
           <Stack direction="column" alignItems="center" spacing={2}>
             <Stack direction="row" alignItems="center" spacing={2}>

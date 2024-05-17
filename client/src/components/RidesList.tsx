@@ -72,6 +72,7 @@ const RidesList = () => {
         {rides.map((ride) => (
           <RideCard
             key={ride.id}
+            id={ride.id}
             start={ride.start}
             destination={ride.destination}
             startTime={ride.startTime}
