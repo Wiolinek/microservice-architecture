@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Home from '@pages/Home';
 import AddRide from '@pages/AddRide';
 import Inbox from '@pages/Inbox';
@@ -11,7 +11,6 @@ import Footer from '@layouts/Footer';
 import { createTheme, ThemeProvider } from '@mui/material';
 import './App.css';
 
-
 const theme = createTheme({
   palette: {
     primary: {
@@ -22,27 +21,27 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: [
-      "Urbanist", 'sans-serif'
-    ].join(','),
+    fontFamily: ['Urbanist', 'sans-serif'].join(','),
   },
 });
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/add-ride" element={<AddRide />}></Route>
-        <Route path="/:rideid" element={<Ride />}></Route>
-        <Route path="/inbox" element={<Inbox />}></Route>
-        <Route path="/login" element={<LogIn />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path='*' element={ <NotFound />}></Route>
-      </Routes>
-      <Footer />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/add-ride" element={<AddRide />}></Route>
+          <Route path="/:rideid" element={<Ride />}></Route>
+          <Route path="/inbox" element={<Inbox />}></Route>
+          <Route path="/login" element={<LogIn />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+        <Footer />
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
 
