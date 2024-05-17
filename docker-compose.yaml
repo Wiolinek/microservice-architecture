@@ -46,9 +46,8 @@ services:
     image: rabbitmq:3.13-rc-management-alpine
     restart: always
     environment:
-      POSTGRES_DB: trains_auth
-      POSTGRES_USER: trains
-      POSTGRES_PASSWORD: trains_pass
+      RABBITMQ_DEFAULT_USER: myuser
+      RABBITMQ_DEFAULT_PASS: mypassword
     ports:
       # AMQP protocol port
       - '5672:5672'
