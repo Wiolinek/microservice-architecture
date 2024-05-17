@@ -3,6 +3,7 @@ import Home from '@pages/Home';
 import AddRide from '@pages/AddRide';
 import Inbox from '@pages/Inbox';
 import LogIn from '@pages/LogIn';
+import Register from '@pages/Register';
 import NotFound from '@pages/NotFound';
 import Ride from '@pages/Ride';
 import Navbar from '@layouts/Navbar';
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/:rideid" element={<Ride />}></Route>
         <Route path="/inbox" element={<Inbox />}></Route>
         <Route path="/login" element={<LogIn />}></Route>
+        <Route path="/register" element={<Register />}></Route>
         <Route path='*' element={ <NotFound />}></Route>
       </Routes>
       <Footer />

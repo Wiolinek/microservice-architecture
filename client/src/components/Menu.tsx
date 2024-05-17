@@ -11,6 +11,7 @@ import MapIcon from '@mui/icons-material/Map';
 import AddRoadIcon from '@mui/icons-material/AddRoad';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const navLinkStyleDesktop = {
   textDecoration: 'none',
@@ -103,6 +104,16 @@ const CustomMenu = () => {
               )}
             </NavLink>
           </MenuItem>
+          <MenuItem onClick={handleCloseNavMenu}>
+            <NavLink to={'/register'} style={{ textDecoration: 'none', width: '100%' }}>
+              {({ isActive }) => (
+                <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%' }}>
+                  <PersonAddIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }} />
+                  Register
+                </Button>
+              )}
+            </NavLink>
+          </MenuItem>
         </Menu>
       </Box>
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: 16 } }}>
@@ -137,6 +148,14 @@ const CustomMenu = () => {
             <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
               <PersonIcon sx={{ mr: 1 }} />
               LogIn
+            </Button>
+          )}
+        </NavLink>
+        <NavLink to={'/register'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+          {({ isActive }) => (
+            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+              <PersonAddIcon sx={{ mr: 1 }} />
+              Register
             </Button>
           )}
         </NavLink>
