@@ -1,4 +1,4 @@
-import PageWrapper from '@components/PageWrapper';
+import PageWrapper from '@layouts/PageWrapper';
 import Stack from '@mui/material/Stack';
 
 const Register = () => {
