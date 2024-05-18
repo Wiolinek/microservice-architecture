@@ -14,21 +14,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PaidIcon from '@mui/icons-material/Paid';
-
-interface RideCardProps {
-  id: number;
-  start: string;
-  destination: string;
-  startDate: string;
-  startTime: string;
-  endDate: string;
-  endTime: string;
-  totalSeats: number;
-  freeSeats: number;
-  price: number;
-  carMake: string;
-  photo: string;
-}
+import { Ride } from '@data/defaultRidesList';
 
 export const typographyStyle = {
   fontWeight: 700,
@@ -62,7 +48,7 @@ const RideCard = ({
   price,
   carMake,
   photo,
-}: RideCardProps) => {
+}: Ride) => {
   return (
     <Grid item xs={12} md={6} xl={4}>
       <ListItem key={id} disablePadding sx={{ display: 'block' }}>
