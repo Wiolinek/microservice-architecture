@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { routes } from './data/routes';
+import { routes } from '@data/routes';
 import './App.css';
 
 const router = createBrowserRouter(routes);
