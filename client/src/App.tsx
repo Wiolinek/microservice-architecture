@@ -1,15 +1,9 @@
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Home from '@pages/Home';
-import AddRide from '@pages/AddRide';
-import Inbox from '@pages/Inbox';
-import LogIn from '@pages/LogIn';
-import Register from '@pages/Register';
-import NotFound from '@pages/NotFound';
-import Ride from '@pages/Ride';
-import Navbar from '@layouts/Navbar';
-import Footer from '@layouts/Footer';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material';
+import { routes } from './routes';
 import './App.css';
+
+const router = createBrowserRouter(routes);
 
 const theme = createTheme({
   palette: {
@@ -27,21 +21,9 @@ const theme = createTheme({
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/add-ride" element={<AddRide />}></Route>
-          <Route path="/:rideid" element={<Ride />}></Route>
-          <Route path="/inbox" element={<Inbox />}></Route>
-          <Route path="/login" element={<LogIn />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-        <Footer />
-      </ThemeProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 };
 
