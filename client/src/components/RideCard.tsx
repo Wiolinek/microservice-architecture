@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -18,7 +19,9 @@ interface RideCardProps {
   id: number;
   start: string;
   destination: string;
+  startDate: string;
   startTime: string;
+  endDate: string;
   endTime: string;
   totalSeats: number;
   freeSeats: number;
@@ -27,7 +30,7 @@ interface RideCardProps {
   photo: string;
 }
 
-const typographyStyle = {
+export const typographyStyle = {
   fontWeight: 700,
   letterSpacing: '.1rem',
   textTransform: 'uppercase',
@@ -46,31 +49,43 @@ const generateSeats = (totalSeats: number, freeSeats: number) => {
   return icons;
 };
 
-const RideCard = ({ id, start, destination, totalSeats, startTime, endTime, freeSeats, price, carMake, photo }: RideCardProps) => {
+const RideCard = ({
+  id,
+  start,
+  destination,
+  totalSeats,
+  startDate,
+  startTime,
+  endDate,
+  endTime,
+  freeSeats,
+  price,
+  carMake,
+  photo,
+}: RideCardProps) => {
   return (
     <Grid item xs={12} md={6} xl={4}>
-      <ListItem key={id} disableGutters sx={{ display: 'block' }}>
+      <ListItem key={id} disablePadding sx={{ display: 'block' }}>
         <Paper sx={{ p: 2 }}>
           <Stack direction="column" alignItems="center" spacing={2}>
-            <Stack direction="row" alignItems="center" spacing={2}>
+            <Stack direction="row" alignItems="center" spacing={3}>
               <MyLocationIcon />
               <Stack alignItems="center" spacing={2}>
                 <Typography variant="h6" component="p" sx={typographyStyle}>
+                  {startDate}
+                </Typography>
+                <Typography variant="h6" component="p" sx={typographyStyle}>
                   {start}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  component="p"
-                  sx={{
-                    fontWeight: 700,
-                    letterSpacing: '.1rem',
-                    textTransform: 'uppercase',
-                  }}>
+                <Typography variant="body2" component="p" sx={typographyStyle}>
                   {startTime}
                 </Typography>
               </Stack>
               <EastIcon />
               <Stack alignItems="center" spacing={2}>
+                <Typography variant="h6" component="p" sx={typographyStyle}>
+                  {endDate}
+                </Typography>
                 <Typography variant="h6" component="p" sx={typographyStyle}>
                   {destination}
                 </Typography>
@@ -106,9 +121,20 @@ const RideCard = ({ id, start, destination, totalSeats, startTime, endTime, free
                 </Typography>
               </Box>
             </Stack>
-            <Button variant="contained" color="primary" size="medium" sx={{ textDecoration: 'none', width: '100%' }}>
-              Book seat
-            </Button>
+            <NavLink to={`ride/${id}`} style={{ width: '100%' }}>
+              {({ isActive }) => (
+                <Button
+                  variant="contained"
+                  disabled={isActive}
+                  size="medium"
+                  sx={{
+                    textDecoration: 'none',
+                    width: '100%',
+                  }}>
+                  {isActive ? <EastIcon /> : 'Check details'}
+                </Button>
+              )}
+            </NavLink>
           </Stack>
         </Paper>
       </ListItem>
