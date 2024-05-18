@@ -18,6 +18,34 @@ const theme = createTheme({
   typography: {
     fontFamily: ['Urbanist', 'sans-serif'].join(','),
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: 'rgba(91, 53, 81, 1)',
+            color: 'rgba(255, 255, 255, 1)',
+          },
+          '&.logo': {
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 1)',
+              color: 'rgba(91, 53, 81, 1)',
+            },
+          }
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: 'rgba(91, 53, 81, 1)',
+            color: 'rgba(255, 255, 255, 1)',
+          },
+        },
+      },
+    },
+  },
 });
 
 const App = () => {
