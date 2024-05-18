@@ -11,6 +11,8 @@ import TuneIcon from '@mui/icons-material/Tune';
 import CloseIcon from '@mui/icons-material/Close';
 import Divider from '@mui/material/Divider';
 
+const drawerWidth = 300;
+
 const CustomDrawer = () => {
   const [open, setOpen] = useState(false);
 
@@ -18,9 +20,9 @@ const CustomDrawer = () => {
     setOpen(newOpen);
   };
 
-  const DrawerList = (
-    <Box sx={{ width: 270 }} role="menu" onClick={toggleDrawer(false)}>
-      <List sx={{ py: 4, px: 2 }}>
+  const drawerList = (
+    <Box role="menu" sx={{ width: drawerWidth, px: 3 }} onClick={toggleDrawer(false)}>
+      <List sx={{ py: 3, px: 2 }}>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary="filter 1" />
@@ -47,19 +49,30 @@ const CustomDrawer = () => {
   );
 
   return (
-    <div>
-      <IconButton aria-label="open filters" onClick={toggleDrawer(true)}>
-        <TuneIcon sx={{ color: 'primary.main' }} />
+    <>
+      <IconButton
+        aria-label="open filters"
+        onClick={toggleDrawer(true)}
+        sx={{ position: 'fixed', alignSelf: 'self-start', zIndex: 1, bgcolor: 'primary.main' }}>
+        <TuneIcon sx={{ color: 'primary.light' }} />
       </IconButton>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
-        <Toolbar sx={{ bgcolor: 'primary.main' }}>
-          <IconButton aria-label="close filters" onClick={toggleDrawer(false)}>
+      <Drawer
+        onClose={toggleDrawer(false)}
+        open={open}
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'transparent' },
+        }}>
+        <Toolbar />
+        <Toolbar sx={{ bgcolor: 'primary.light' }} style={{ paddingLeft: '48px', paddingTop: '8px' }}>
+          <IconButton aria-label="close filters" onClick={toggleDrawer(false)} sx={{ bgcolor: 'primary.main' }}>
             <CloseIcon sx={{ color: 'primary.light' }} />
           </IconButton>
         </Toolbar>
-        {DrawerList}
+        <Box sx={{ overflow: 'auto', bgcolor: 'primary.light', height: '100%' }}>{drawerList}</Box>
       </Drawer>
-    </div>
+    </>
   );
 };
 

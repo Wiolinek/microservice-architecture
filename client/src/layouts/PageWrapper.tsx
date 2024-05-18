@@ -12,8 +12,8 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
       <Navbar />
       <Container
         maxWidth={false}
-        disableGutters
-        sx={{ backgroundColor: 'secondary.main', minHeight: 'calc(100vh - 64px)', px: 4, pt: 16, pb: 12 }}>
+        sx={{ backgroundColor: 'secondary.main', minHeight: 'calc(100vh - 64px)', pt: 10, pb: 12 }}
+        style={{ paddingLeft: '48px', paddingRight: '48px' }}>
         {children}
       </Container>
       <Footer />
