@@ -10,10 +10,10 @@ const ErrorPage = () => {
       <Stack direction="column" alignItems="center" spacing={6}>
         <Box display="flex" flexDirection="column" gap={2}>
           <Typography variant="h4" component="h1" sx={{ fontSize: '4rem', fontWeight: 900 }}>
-            Ooops.. 
+            Ooops..
           </Typography>
           <Typography variant="h4" component="h2" sx={{ fontWeight: 700, color: 'primary.main' }}>
-            Back to home page <Link to='/'>Back</Link>
+            Back to home page <Link to="/">Back</Link>
           </Typography>
         </Box>
       </Stack>
