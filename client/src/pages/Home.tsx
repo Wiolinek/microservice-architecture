@@ -1,21 +1,24 @@
+import { useLocation } from 'react-router-dom';
 import PageWrapper from '@layouts/PageWrapper';
+import CustomDrawer from '@components/Drawer';
 import RidesList from '@components/RidesList';
+import Banner from '@layouts/Banner';
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+
+const homeTitle = 'Find your perfect ride';
+const homeSubtitle = 'for the best price';
+const singleRidePageTitle = 'Book & go...';
 
 const Home = () => {
+  const { pathname } = useLocation();
+  const isDrawerVisible = pathname === '/' || pathname.includes('/ride');
+
   return (
     <PageWrapper>
       <Stack direction="column" alignItems="center" spacing={6}>
-        <Box display="flex" flexDirection="column" gap={2}>
-          <Typography variant="h4" component="h1" sx={{ fontSize: '4rem', fontWeight: 900 }}>
-            Find your perfect ride
-          </Typography>
-          <Typography variant="h4" component="h2" sx={{ fontWeight: 700, color: 'primary.main' }}>
-            for the best price
-          </Typography>
-        </Box>
+        {isDrawerVisible && <CustomDrawer />}
+        {pathname === '/' && <Banner title={homeTitle} subtitle={homeSubtitle}></Banner>}
+        {pathname.includes('/ride') && <Banner title={singleRidePageTitle}></Banner>}
         <RidesList />
       </Stack>
     </PageWrapper>
