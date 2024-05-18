@@ -10,12 +10,7 @@ import Divider from '@mui/material/Divider';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PaidIcon from '@mui/icons-material/Paid';
-
-const typographyStyle = {
-  fontWeight: 700,
-  letterSpacing: '.1rem',
-  textTransform: 'uppercase',
-};
+import { typographyStyle } from '@components/RideCard';
 
 const Ride = () => {
   const { rideId } = useParams();
@@ -28,16 +23,15 @@ const Ride = () => {
     }
   }, [rideId, setHeight]);
 
-  console.log(rideId);
   return (
-    <Paper sx={{ width: '100%', height: 'max-content', p: 2 }} ref={rideDetails}>
-      <Stack direction="column" spacing={3}>
+    <Paper sx={{ height: 'max-content', p: 2, color: 'primary.light', backgroundColor: 'primary.main' }} ref={rideDetails}>
+      <Stack spacing={3}>
         <Link to="/" style={{ alignSelf: 'self-start' }}>
-          <Button variant={'contained'} size="medium" sx={{ width: '100%' }}>
+          <Button variant={'contained'} size="medium" sx={{ color: 'primary.main', backgroundColor: 'primary.light' }}>
             Back to full list
           </Button>
         </Link>
-        <Stack direction="column" spacing={3}>
+        <Stack spacing={3}>
           <Stack direction="row" alignItems="center" spacing={4}>
             <MyLocationIcon />
             <Stack spacing={1}>
@@ -68,13 +62,13 @@ const Ride = () => {
             </Typography>
           </Stack>
         </Stack>
-        <Divider flexItem orientation="horizontal" sx={{ backgroundColor: 'primary.main', height: 1 }} />
+        <Divider sx={{ backgroundColor: 'primary.light', height: 1 }} />
         <ImageList variant="quilted" cols={1} sx={{ width: '100%', height: '300px' }}>
           <ImageListItem sx={{ overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
             <img src={'../../images/1.jpg'} alt={'carMake'} title={'carMake'} loading="lazy" />
           </ImageListItem>
         </ImageList>
-        <Stack direction="row" justifyContent="space-between" spacing={1} sx={{ width: '100%' }}>
+        <Stack direction="row" justifyContent="space-between" spacing={1}>
           <Stack direction="row" alignItems="center" spacing={1}>
             <Typography variant="body1" component="p" sx={typographyStyle}>
               Available seats:
@@ -101,7 +95,7 @@ const Ride = () => {
             </Typography>
           </Stack>
         </Stack>
-        <Divider flexItem orientation="horizontal" sx={{ backgroundColor: 'primary.main', height: 1 }} />
+        <Divider sx={{ backgroundColor: 'primary.light', height: 1 }} />
         <Stack spacing={1}>
           <Typography
             variant="body1"
@@ -119,7 +113,11 @@ const Ride = () => {
             sunt in culpa qui officia deserunt mollit anim id est laborum.
           </Typography>
         </Stack>
-        <Button variant="contained" color="primary" size="medium" sx={{ textDecoration: 'none', width: '100%' }}>
+        <Button
+          variant="contained"
+          color="primary"
+          size="medium"
+          sx={{ textDecoration: 'none', width: '100%', color: 'primary.main', backgroundColor: 'primary.light' }}>
           Book seat
         </Button>
       </Stack>
