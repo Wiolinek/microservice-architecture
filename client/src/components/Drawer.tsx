@@ -54,7 +54,7 @@ const CustomDrawer = () => {
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <Toolbar sx={{ bgcolor: 'primary.main' }}>
           <IconButton aria-label="close filters" onClick={toggleDrawer(false)}>
-            <CloseIcon sx={{ color: '#fff' }} />
+            <CloseIcon sx={{ color: 'primary.light' }} />
           </IconButton>
         </Toolbar>
         {DrawerList}

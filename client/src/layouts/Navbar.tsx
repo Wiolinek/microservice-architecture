@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <AppBar position="fixed">
-      <Toolbar variant="dense" sx={{ display: 'flex', backgroundColor: '#fff', color: 'primary.main' }}>
+      <Toolbar variant="dense" sx={{ display: 'flex', backgroundColor: 'primary.light', color: 'primary.main' }}>
         {pathname === '/' && <CustomDrawer />}
         <CustomMenu />
         <Box display="flex" alignItems="center" gap={3} p={1}>
