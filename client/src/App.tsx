@@ -31,7 +31,7 @@ const theme = createTheme({
               backgroundColor: 'rgba(255, 255, 255, 1)',
               color: 'rgba(91, 53, 81, 1)',
             },
-          }
+          },
         },
       },
     },
