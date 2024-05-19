@@ -47,7 +47,7 @@ const RideCard = ({
   freeSeats,
   price,
   carMake,
-  photo,
+  carImage,
 }: Ride) => {
   return (
     <Grid item xs={12} md={6} xl={4}>
@@ -84,7 +84,7 @@ const RideCard = ({
             <Divider flexItem orientation="horizontal" sx={{ backgroundColor: 'primary.main', height: 1 }} />
             <ImageList variant="quilted" cols={1} sx={{ width: '100%', height: '300px' }}>
               <ImageListItem sx={{ overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-                <img src={photo} alt={carMake} title={carMake} loading="lazy" />
+                <img src={carImage} alt={carMake} title={carMake} loading="lazy" />
               </ImageListItem>
             </ImageList>
             <Stack direction="row" justifyContent="space-between" spacing={1} sx={{ width: '100%' }}>

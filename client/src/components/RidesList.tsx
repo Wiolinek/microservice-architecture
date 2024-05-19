@@ -32,7 +32,7 @@ const RidesList = () => {
                 freeSeats={ride.freeSeats}
                 price={ride.price}
                 carMake={ride.carMake}
-                photo={ride.photo}></RideCard>
+                carImage={ride.carImage}></RideCard>
             ))}
           </Grid>
         </List>

@@ -10,7 +10,7 @@ export interface Ride {
   freeSeats: number;
   price: number;
   carMake: string;
-  photo: string;
+  carImage: string;
 }
 
 export const defaultRidesList = [
@@ -26,7 +26,7 @@ export const defaultRidesList = [
     freeSeats: 1,
     price: 10,
     carMake: 'Skoda',
-    photo: '../../images/1.jpg',
+    carImage: '../../images/1.jpg',
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ export const defaultRidesList = [
     freeSeats: 2,
     price: 10,
     carMake: 'Opel',
-    photo: '../../images/2.jpg',
+    carImage: '../../images/2.jpg',
   },
   {
     id: 3,
@@ -54,7 +54,7 @@ export const defaultRidesList = [
     freeSeats: 1,
     price: 10,
     carMake: 'BMW',
-    photo: '../../images/3.jpg',
+    carImage: '../../images/3.jpg',
   },
   {
     id: 4,
@@ -68,7 +68,7 @@ export const defaultRidesList = [
     freeSeats: 2,
     price: 10,
     carMake: 'Mercedes',
-    photo: '../../images/4.jpg',
+    carImage: '../../images/4.jpg',
   },
   {
     id: 5,
@@ -82,6 +82,6 @@ export const defaultRidesList = [
     freeSeats: 1,
     price: 10,
     carMake: 'BMW',
-    photo: '../../images/5.jpg',
+    carImage: '../../images/5.jpg',
   },
 ];
