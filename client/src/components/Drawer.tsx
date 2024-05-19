@@ -62,7 +62,7 @@ const CustomDrawer = () => {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'transparent' },
+          ['& .MuiDrawer-paper']: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'transparent' },
         }}>
         <Toolbar />
         <Toolbar sx={{ bgcolor: 'primary.light' }} style={{ paddingLeft: '48px', paddingTop: '8px' }}>

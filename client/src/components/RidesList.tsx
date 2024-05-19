@@ -9,7 +9,7 @@ const RidesList = () => {
   const { pathname } = useLocation();
   const [height, setHeight] = useState<number>(100);
   return (
-    <Grid container direction="row" spacing={3} style={{ marginLeft: -24 }}>
+    <Grid container direction="row" spacing={3} style={{ marginLeft: -24, marginTop: 48 }}>
       <Grid item xs={12} md={pathname.includes('/ride/') ? 6 : 12}>
         <List
           sx={

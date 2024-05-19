@@ -12,7 +12,7 @@ const Navbar = () => {
     <AppBar
       position="fixed"
       sx={{
-        [`&.MuiPaper-root`]: { backgroundColor: 'primary.light' },
+        ['&.MuiPaper-root']: { backgroundColor: 'primary.light' },
       }}>
       <Toolbar>
         <CustomMenu />
@@ -28,7 +28,7 @@ const Navbar = () => {
                   letterSpacing: '.1rem',
                   textTransform: 'uppercase',
                   pr: 1,
-                  alignSelf: 'self-end',
+                  textAlign: 'start',
                 }}>
                 Share Your Ride
               </Typography>

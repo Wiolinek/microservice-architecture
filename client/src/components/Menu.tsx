@@ -34,15 +34,9 @@ const CustomMenu = () => {
   };
 
   return (
-    <Toolbar sx={{ ml: { xs: 'auto', md: 0 }, mr: { xs: 0, md: 'auto' } }}>
+    <Toolbar sx={{ flexGrow: 1 }}>
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-        <IconButton
-          size="large"
-          color="primary"
-          aria-label="test"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          onClick={handleOpenNavMenu}>
+        <IconButton color="primary" aria-label="test" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu}>
           <MenuIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: { xs: 0, md: 2 } }} />
         </IconButton>
         <Menu
@@ -116,49 +110,53 @@ const CustomMenu = () => {
           </MenuItem>
         </Menu>
       </Box>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: 16 } }}>
-        <NavLink to={'/'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
-          {({ isActive }) => (
-            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
-              <MapIcon sx={{ mr: 1 }} />
-              Rides
-            </Button>
-          )}
-        </NavLink>
-        <NavLink to={'/add-ride'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
-          {({ isActive }) => (
-            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
-              <AddRoadIcon sx={{ mr: 1 }} />
-              Add ride
-            </Button>
-          )}
-        </NavLink>
-        {pathname.includes('inbox') && (
-          <NavLink to={'/inbox'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+      <Box sx={{ flexGrow: 1, justifyContent: 'space-between', display: { xs: 'none', md: 'flex', gap: 16 } }}>
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: 16 } }}>
+          <NavLink to={'/'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
             {({ isActive }) => (
               <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
-                <EmailIcon sx={{ mr: 1 }} />
-                Inbox
+                <MapIcon sx={{ mr: 1 }} />
+                Rides
               </Button>
             )}
           </NavLink>
-        )}
-        <NavLink to={'/login'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
-          {({ isActive }) => (
-            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
-              <PersonIcon sx={{ mr: 1 }} />
-              LogIn
-            </Button>
+          <NavLink to={'/add-ride'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+            {({ isActive }) => (
+              <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+                <AddRoadIcon sx={{ mr: 1 }} />
+                Add ride
+              </Button>
+            )}
+          </NavLink>
+        </Box>
+        <Box sx={{ flexGrow: 1, justifyContent: 'flex-end', display: { xs: 'none', md: 'flex', gap: 16 } }}>
+          {pathname.includes('inbox') && (
+            <NavLink to={'/inbox'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+              {({ isActive }) => (
+                <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+                  <EmailIcon sx={{ mr: 1 }} />
+                  Inbox
+                </Button>
+              )}
+            </NavLink>
           )}
-        </NavLink>
-        <NavLink to={'/register'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
-          {({ isActive }) => (
-            <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
-              <PersonAddIcon sx={{ mr: 1 }} />
-              Register
-            </Button>
-          )}
-        </NavLink>
+          <NavLink to={'/login'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+            {({ isActive }) => (
+              <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+                <PersonIcon sx={{ mr: 1 }} />
+                LogIn
+              </Button>
+            )}
+          </NavLink>
+          <NavLink to={'/register'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+            {({ isActive }) => (
+              <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
+                <PersonAddIcon sx={{ mr: 1 }} />
+                Register
+              </Button>
+            )}
+          </NavLink>
+        </Box>
       </Box>
     </Toolbar>
   );
