@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 interface BannerProps {
@@ -8,7 +8,7 @@ interface BannerProps {
 
 const Banner = ({ title, subtitle }: BannerProps) => {
   return (
-    <Box display="flex" flexDirection="column" gap={2} style={{ marginTop: '10px' }} sx={{ flexGrow: 1, p: 3 }}>
+    <Stack direction="column" spacing={1} style={{ marginTop: 48 }}>
       {title && (
         <Typography variant="h4" component="h1" sx={{ fontSize: '4rem', fontWeight: 900 }}>
           {title}
@@ -19,7 +19,7 @@ const Banner = ({ title, subtitle }: BannerProps) => {
           {subtitle}
         </Typography>
       )}
-    </Box>
+    </Stack>
   );
 };
 

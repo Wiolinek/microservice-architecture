@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom';
 import PageWrapper from '@layouts/PageWrapper';
+import Banner from '@layouts/Banner';
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 const ErrorPage = () => {
   return (
     <PageWrapper>
       <Stack direction="column" alignItems="center" spacing={6}>
-        <Box display="flex" flexDirection="column" gap={2}>
-          <Typography variant="h4" component="h1" sx={{ fontSize: '4rem', fontWeight: 900 }}>
-            Ooops..
-          </Typography>
-          <Typography variant="h4" component="h2" sx={{ fontWeight: 700, color: 'primary.main' }}>
-            Back to home page <Link to="/">Back</Link>
-          </Typography>
-        </Box>
+        <Banner title="Ooops.. Something went wrong!" />
+      </Stack>
+      <Stack direction="row" alignItems="center" justifyContent="flex-start" spacing={6} style={{ marginTop: 48 }}>
+        <Link to="/" style={{ alignSelf: 'self-start' }}>
+          <Button variant={'contained'} size="medium" sx={{ color: 'primary.light', backgroundColor: 'primary.main' }}>
+            Back to home page
+          </Button>
+        </Link>
       </Stack>
     </PageWrapper>
   );
