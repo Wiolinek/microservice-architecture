@@ -1,5 +1,6 @@
 export interface Ride {
   id: number;
+  driverName?: string;
   start: string;
   destination: string;
   startDate: string;
@@ -16,6 +17,7 @@ export interface Ride {
 export const defaultRidesList = [
   {
     id: 1,
+    driverName: 'Adam',
     start: 'Warszawa',
     destination: 'Kraków',
     startDate: '24.11.2024',
@@ -30,6 +32,7 @@ export const defaultRidesList = [
   },
   {
     id: 2,
+    driverName: 'Peter',
     start: 'Sopot',
     destination: 'Gdańsk',
     startDate: '25.11.2024',
@@ -44,6 +47,7 @@ export const defaultRidesList = [
   },
   {
     id: 3,
+    driverName: 'Anna',
     start: 'Poznań',
     destination: 'Wrocław',
     startDate: '26.11.2024',
@@ -58,6 +62,7 @@ export const defaultRidesList = [
   },
   {
     id: 4,
+    driverName: 'Susan',
     start: 'Łódź',
     destination: 'Warszawa',
     startDate: '27.11.2024',
@@ -72,6 +77,7 @@ export const defaultRidesList = [
   },
   {
     id: 5,
+    driverName: 'Paul',
     start: 'Katowice',
     destination: 'Opole',
     startDate: '25.11.2024',
