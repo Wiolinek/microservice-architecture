@@ -15,6 +15,7 @@ const RegisterForm = () => {
     register,
     // reset,
     // setValue,
+    getValues,
     handleSubmit,
     formState: { isDirty, isSubmitting, /*isSubmitted, isSubmitSuccessful, */ errors },
   } = useFormContext<RegisterFormSchema>();
@@ -46,17 +47,21 @@ const RegisterForm = () => {
           />
           <FormControl>
             <FormLabel component="legend">I am:</FormLabel>
-            <FormControlLabel control={<Checkbox size="medium" />} label="driver" />
-            <FormControlLabel control={<Checkbox size="medium" />} label="passenger" />
+            <FormControlLabel control={<Checkbox {...register('isDriver')} size="medium" />} label="driver" />
+            <FormControlLabel control={<Checkbox {...register('isPassenger')} size="medium" />} label="passenger" />
           </FormControl>
-          <TextField {...register('carMake')} label="Car make" error={!!errors.carMake} helperText={errors.carMake?.message} />
-          <TextField
-            {...register('carImage')}
-            label="Add your car image"
-            type="file"
-            error={!!errors.carImage}
-            helperText={errors.carImage?.message}
-          />
+          {getValues('isDriver') && (
+            <>
+              <TextField {...register('carMake')} label="Car make" error={!!errors.carMake} helperText={errors.carMake?.message} />
+              <TextField
+                {...register('carImage')}
+                label="Add your car image"
+                type="file"
+                error={!!errors.carImage}
+                helperText={errors.carImage?.message}
+              />
+            </>
+          )}
           <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
             Register
           </Button>
