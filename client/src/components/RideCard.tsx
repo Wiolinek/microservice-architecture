@@ -9,6 +9,9 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 import EastIcon from '@mui/icons-material/East';
 import PersonIcon from '@mui/icons-material/Person';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
@@ -53,6 +56,12 @@ const RideCard = ({
     <Grid item xs={12} md={6} xl={4}>
       <ListItem key={id} disablePadding sx={{ display: 'block' }}>
         <Paper sx={{ p: 2 }}>
+          <Checkbox
+            {...{ inputProps: { 'aria-label': 'Add to favourite' } }}
+            sx={{ position: 'absolute', right: 16, p: 0 }}
+            icon={<FavoriteBorder />}
+            checkedIcon={<Favorite />}
+          />
           <Stack direction="column" alignItems="center" spacing={2}>
             <Stack direction="row" alignItems="center" spacing={3}>
               <MyLocationIcon />

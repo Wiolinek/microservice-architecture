@@ -7,9 +7,12 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
+import Checkbox from '@mui/material/Checkbox';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PaidIcon from '@mui/icons-material/Paid';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 import { typographyStyle } from '@components/RideCard';
 
 const Ride = () => {
@@ -26,11 +29,23 @@ const Ride = () => {
   return (
     <Paper sx={{ height: 'max-content', p: 2, color: 'primary.light', backgroundColor: 'primary.main' }} ref={rideDetails}>
       <Stack spacing={3}>
-        <Link to="/" style={{ alignSelf: 'self-start' }}>
-          <Button variant={'contained'} size="medium" sx={{ color: 'primary.main', backgroundColor: 'primary.light' }}>
-            Back to full list
-          </Button>
-        </Link>
+        <Stack direction="row" alignItems="center" justifyContent="space-between">
+          <Link to="/" style={{ alignSelf: 'self-start' }}>
+            <Button variant={'contained'} size="medium" sx={{ color: 'primary.main', backgroundColor: 'primary.light' }}>
+              Back to full list
+            </Button>
+          </Link>
+          <Checkbox
+            {...{ inputProps: { 'aria-label': 'Add to favourite' } }}
+            sx={{
+              color: 'primary.light',
+              p: 0,
+              ['&.Mui-checked']: { color: 'primary.light' },
+            }}
+            icon={<FavoriteBorder />}
+            checkedIcon={<Favorite />}
+          />
+        </Stack>
         <Stack spacing={3}>
           <Stack direction="row" alignItems="center" spacing={4}>
             <MyLocationIcon />
