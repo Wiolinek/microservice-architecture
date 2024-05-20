@@ -78,6 +78,17 @@ const Ride = () => {
           </Stack>
         </Stack>
         <Divider sx={{ backgroundColor: 'primary.light', height: 1 }} />
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <Typography variant="body1" component="p" sx={typographyStyle}>
+            Driver:
+          </Typography>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Typography variant="h6" component="p" sx={typographyStyle}>
+              {'Adam'}
+            </Typography>
+          </Stack>
+        </Stack>
+        <Divider sx={{ backgroundColor: 'primary.light', height: 1 }} />
         <ImageList variant="quilted" cols={1} sx={{ width: '100%', height: '300px' }}>
           <ImageListItem sx={{ overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
             <img src={'../../images/1.jpg'} alt={'carMake'} title={'carMake'} loading="lazy" />
