@@ -17,8 +17,8 @@ export interface RegisterFormValues {
   phone: string;
   password: string;
   repeatPassword: string;
-  driver: boolean;
-  passenger: boolean;
+  isDriver: boolean;
+  isPassenger: boolean;
   carMake?: string;
   carImage?: string;
 }

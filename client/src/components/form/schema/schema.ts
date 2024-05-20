@@ -24,8 +24,8 @@ export const registerFormSchema = z.object({
     .refine((phone) => phoneNumberRegex.test(phone), { message: 'Phone number is not valid' }),
   password: z.string().min(8, { message: 'Password should have at least 8 characters' }),
   repeatPassword: z.string().min(8, { message: 'Password should have at least 8 characters' }),
-  driver: z.boolean(),
-  passenger: z.boolean(),
+  isDriver: z.boolean(),
+  isPassenger: z.boolean(),
   carMake: z.string().min(2, { message: 'Car make should have at least 2 characters' }),
   carImage: z.string(),
 });
