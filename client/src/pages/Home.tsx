@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import PageWrapper from '@layouts/PageWrapper';
-import CustomDrawer from '@components/Drawer';
+import FiltersDrawer from '@components/FiltersDrawer';
 import RidesList from '@components/RidesList';
 import Banner from '@layouts/Banner';
 
@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <PageWrapper>
-      {isDrawerVisible && <CustomDrawer />}
+      {isDrawerVisible && <FiltersDrawer />}
       {pathname === '/' && <Banner title={homeTitle} subtitle={homeSubtitle}></Banner>}
       {pathname.includes('/ride') && <Banner title={singleRidePageTitle}></Banner>}
       <RidesList />

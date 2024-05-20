@@ -12,6 +12,7 @@ const Navbar = () => {
     <AppBar
       position="fixed"
       sx={{
+        zIndex: 2,
         ['&.MuiPaper-root']: { backgroundColor: 'primary.light' },
       }}>
       <Toolbar>

@@ -19,3 +19,5 @@ export const registerDefaultValues: RegisterFormValues = {
   carMake: '',
   carImage: '',
 };
+
+export const drawerWidth = 350;

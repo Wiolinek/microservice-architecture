@@ -1,12 +1,17 @@
 import { RouteObject } from 'react-router-dom';
-import Register from '@pages/Register';
-import NotFound from '@pages/NotFound';
 import Ride from '@pages/Ride';
-import Home from '@pages/Home.tsx';
-import AddRide from '@pages/AddRide.tsx';
-import Inbox from '@pages/Inbox.tsx';
-import LogIn from '@pages/LogIn.tsx';
-import ErrorPage from '@pages/ErrorPage.tsx';
+import Home from '@pages/Home';
+import AddRide from '@pages/AddRide';
+import LogIn from '@pages/LogIn';
+import Register from '@pages/Register';
+import Dashboard from '@pages/Dashboard';
+import BookedRides from '@pages/BookedRides';
+import OfferedRides from '@pages/OfferedRides';
+import MyAccount from '@pages/MyAccount';
+import Favourites from '@pages/Favourites';
+import Inbox from '@pages/Inbox';
+import NotFound from '@pages/NotFound';
+import ErrorPage from '@pages/ErrorPage';
 
 export const routes: RouteObject[] = [
   {
@@ -40,6 +45,38 @@ export const routes: RouteObject[] = [
     path: '/register',
     element: <Register />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/dashboard/my-account',
+        element: <MyAccount />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/dashboard/booked-rides',
+        element: <BookedRides />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/dashboard/offered-rides',
+        element: <OfferedRides />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/dashboard/favourites',
+        element: <Favourites />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/dashboard/inbox',
+        element: <Inbox />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
   {
     path: '*',

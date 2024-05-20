@@ -10,10 +10,9 @@ import Toolbar from '@mui/material/Toolbar';
 import TuneIcon from '@mui/icons-material/Tune';
 import CloseIcon from '@mui/icons-material/Close';
 import Divider from '@mui/material/Divider';
+import { drawerWidth } from '@data/constants';
 
-const drawerWidth = 300;
-
-const CustomDrawer = () => {
+const FiltersDrawer = () => {
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -76,4 +75,4 @@ const CustomDrawer = () => {
   );
 };
 
-export default CustomDrawer;
+export default FiltersDrawer;
