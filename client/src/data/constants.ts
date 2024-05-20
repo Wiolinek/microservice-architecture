@@ -14,8 +14,8 @@ export const registerDefaultValues: RegisterFormValues = {
   phone: '',
   password: '',
   repeatPassword: '',
-  driver: false,
-  passenger: false,
+  isDriver: false,
+  isPassenger: false,
   carMake: '',
   carImage: '',
 };
