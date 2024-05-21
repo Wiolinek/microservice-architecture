@@ -1,11 +1,11 @@
-import PageWrapper from '@layouts/PageWrapper';
+import DashboardPageWrapper from '@layouts/DashboardPageWrapper';
 import Stack from '@mui/material/Stack';
 
 const Inbox = () => {
   return (
-    <PageWrapper>
+    <DashboardPageWrapper>
       <Stack spacing={2}>Inbox</Stack>
-    </PageWrapper>
+    </DashboardPageWrapper>
   );
 };
 

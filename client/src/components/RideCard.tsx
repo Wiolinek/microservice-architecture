@@ -73,7 +73,7 @@ const RideCard = ({
                   <Typography variant="h6" component="p" sx={typographyStyle}>
                     {start}
                   </Typography>
-                  <Typography variant="body2" component="p" sx={typographyStyle}>
+                  <Typography variant="body2" component="p" sx={{ ...typographyStyle, display: { xs: 'none', sm: 'inline' } }}>
                     {startTime}
                   </Typography>
                 </Stack>
@@ -88,7 +88,7 @@ const RideCard = ({
                   <Typography variant="h6" component="p" sx={typographyStyle}>
                     {destination}
                   </Typography>
-                  <Typography variant="body2" component="p" sx={typographyStyle}>
+                  <Typography variant="body2" component="p" sx={{ ...typographyStyle, display: { xs: 'none', sm: 'inline' } }}>
                     {endTime}
                   </Typography>
                 </Stack>

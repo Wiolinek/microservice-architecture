@@ -10,7 +10,11 @@ const RidesList = () => {
   const [height, setHeight] = useState<number>(100);
   return (
     <Grid container direction="row" spacing={3} style={{ marginLeft: -24, marginTop: 48 }}>
-      <Grid item xs={12} md={pathname.includes('/ride/') ? 6 : 12}>
+      <Grid
+        item
+        sx={{ display: { xs: pathname.includes('/ride/') ? 'none' : 'grid', lg: 'grid' } }}
+        xs={12}
+        lg={pathname.includes('/ride/') ? 6 : 12}>
         <List
           sx={
             pathname.includes('/ride/')
@@ -37,7 +41,7 @@ const RidesList = () => {
           </Grid>
         </List>
       </Grid>
-      <Grid item md={6} sx={{ display: { xs: 'none', md: pathname.includes('/ride/') ? 'grid' : 'none' } }}>
+      <Grid item lg={6} sx={{ display: { xs: 'grid' } }}>
         <Outlet context={setHeight} />
       </Grid>
     </Grid>
