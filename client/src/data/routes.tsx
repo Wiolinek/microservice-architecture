@@ -10,6 +10,7 @@ import OfferedRides from '@pages/OfferedRides';
 import MyAccount from '@pages/MyAccount';
 import Favourites from '@pages/Favourites';
 import Inbox from '@pages/Inbox';
+import RideBooking from '@pages/RideBooking';
 import NotFound from '@pages/NotFound';
 import ErrorPage from '@pages/ErrorPage';
 
@@ -25,6 +26,11 @@ export const routes: RouteObject[] = [
         errorElement: <ErrorPage />,
       },
     ],
+  },
+  {
+    path: '/booking/:rideId',
+    element: <RideBooking />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/add-ride',

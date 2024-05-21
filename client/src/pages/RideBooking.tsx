@@ -4,11 +4,11 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Banner from '@layouts/Banner';
 
-const AddRide = () => {
+const RideBooking = () => {
   return (
     <PageWrapper>
       <Stack direction="column" alignItems="center" spacing={6}>
-        <Banner subtitle="You have to be logged in to add a ride..." />
+        <Banner subtitle="You have to be logged in to book this ride..." />
       </Stack>
       <Stack direction="row" alignItems="center" justifyContent="flex-start" spacing={6} style={{ marginTop: 48 }}>
         <Link to="/login" style={{ alignSelf: 'self-start' }}>
@@ -21,4 +21,4 @@ const AddRide = () => {
   );
 };
 
-export default AddRide;
+export default RideBooking;
