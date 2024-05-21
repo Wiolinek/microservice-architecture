@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -14,6 +15,7 @@ import { drawerWidth } from '@data/constants';
 
 const FiltersDrawer = () => {
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -52,7 +54,13 @@ const FiltersDrawer = () => {
       <IconButton
         aria-label="open filters"
         onClick={toggleDrawer(true)}
-        sx={{ position: 'fixed', alignSelf: 'self-start', zIndex: 1, bgcolor: 'primary.main' }}>
+        sx={{
+          display: { xs: pathname.includes('/ride') ? 'none' : 'flex', lg: 'flex' },
+          position: 'fixed',
+          alignSelf: 'self-start',
+          zIndex: 1,
+          bgcolor: 'primary.main',
+        }}>
         <TuneIcon sx={{ color: 'primary.light' }} />
       </IconButton>
       <Drawer
