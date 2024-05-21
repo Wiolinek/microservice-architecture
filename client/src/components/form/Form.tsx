@@ -1,11 +1,11 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import Paper from '@mui/material/Paper';
-import { LoginFormSchema, RegisterFormSchema } from '@components/form/schema/schema';
+import { LoginFormSchema, RegisterFormSchema, AddRideFormSchema } from '@components/form/schema/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProps } from '@components/form/interfaces';
 
 const Form = ({ formType, formSchema, defaultValues }: FormProps) => {
-  const methods = useForm<LoginFormSchema | RegisterFormSchema>({
+  const methods = useForm<LoginFormSchema | RegisterFormSchema | AddRideFormSchema>({
     mode: 'all',
     resolver: zodResolver(formSchema),
     defaultValues,
