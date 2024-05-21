@@ -95,7 +95,7 @@ const Ride = () => {
           </ImageListItem>
         </ImageList>
         <Stack direction="row" justifyContent="space-between" spacing={1}>
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="center" spacing={1}>
             <Typography variant="body1" component="p" sx={typographyStyle}>
               Available seats:
             </Typography>
@@ -111,14 +111,16 @@ const Ride = () => {
               </Typography>
             </Stack>
           </Stack>
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="center" spacing={1}>
             <PaidIcon />
-            <Typography variant="h4" component="p" sx={typographyStyle}>
-              {10}
-            </Typography>
-            <Typography variant="h6" component="p" sx={typographyStyle}>
-              {'PLN'}
-            </Typography>
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Typography variant="h4" component="p" sx={typographyStyle}>
+                {10}
+              </Typography>
+              <Typography variant="h6" component="p" sx={typographyStyle}>
+                {'PLN'}
+              </Typography>
+            </Stack>
           </Stack>
         </Stack>
         <Divider sx={{ backgroundColor: 'primary.light', height: 1 }} />
@@ -139,13 +141,16 @@ const Ride = () => {
             sunt in culpa qui officia deserunt mollit anim id est laborum.
           </Typography>
         </Stack>
-        <Button
-          variant="contained"
-          color="primary"
-          size="medium"
-          sx={{ textDecoration: 'none', width: '100%', color: 'primary.main', backgroundColor: 'primary.light' }}>
-          Book seat
-        </Button>
+
+        <Link to={`/booking/${rideId}`}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="medium"
+            sx={{ textDecoration: 'none', width: '100%', color: 'primary.main', backgroundColor: 'primary.light' }}>
+            Book seat
+          </Button>
+        </Link>
       </Stack>
     </Paper>
   );
