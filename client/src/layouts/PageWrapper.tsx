@@ -14,7 +14,7 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
       <Container
         maxWidth={false}
         sx={{ backgroundColor: 'secondary.main', minHeight: 'calc(100vh - 64px)' }}
-        style={{ paddingLeft: 48, paddingRight: 48, paddingTop: 80, paddingBottom: 96 }}>
+        style={{ paddingLeft: '3rem', paddingRight: '3rem', paddingTop: '7rem', paddingBottom: '6rem' }}>
         <Stack direction="column" alignItems="center" spacing={2}>
           {children}
         </Stack>

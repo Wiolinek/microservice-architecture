@@ -62,36 +62,41 @@ const RideCard = ({
             icon={<FavoriteBorder />}
             checkedIcon={<Favorite />}
           />
-          <Stack direction="column" alignItems="center" spacing={2}>
-            <Stack direction="row" alignItems="center" spacing={3}>
-              <MyLocationIcon />
-              <Stack alignItems="center" spacing={2}>
-                <Typography variant="h6" component="p" sx={typographyStyle}>
-                  {startDate}
-                </Typography>
-                <Typography variant="h6" component="p" sx={typographyStyle}>
-                  {start}
-                </Typography>
-                <Typography variant="body2" component="p" sx={typographyStyle}>
-                  {startTime}
-                </Typography>
+          <Stack direction="column" alignItems={{ xs: 'flex-start', sm: 'center' }} spacing={2} sx={{ paddingTop: { xs: 3, sm: 0 } }}>
+            <Stack alignItems={{ xs: 'flex-start', sm: 'center' }} spacing={3} direction={{ xs: 'column', sm: 'row' }}>
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <MyLocationIcon />
+                <Stack alignItems="center" direction={{ xs: 'row', sm: 'column' }} spacing={2}>
+                  <Typography variant="h6" component="p" sx={typographyStyle}>
+                    {startDate}
+                  </Typography>
+                  <Typography variant="h6" component="p" sx={typographyStyle}>
+                    {start}
+                  </Typography>
+                  <Typography variant="body2" component="p" sx={typographyStyle}>
+                    {startTime}
+                  </Typography>
+                </Stack>
               </Stack>
-              <EastIcon />
-              <Stack alignItems="center" spacing={2}>
-                <Typography variant="h6" component="p" sx={typographyStyle}>
-                  {endDate}
-                </Typography>
-                <Typography variant="h6" component="p" sx={typographyStyle}>
-                  {destination}
-                </Typography>
-                <Typography variant="body2" component="p" sx={typographyStyle}>
-                  {endTime}
-                </Typography>
+              <EastIcon sx={{ display: { xs: 'none', sm: 'flex' } }} />
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <LocationOnIcon sx={{ display: { xs: 'flex', sm: 'none' } }} />
+                <Stack alignItems="center" direction={{ xs: 'row', sm: 'column' }} spacing={2}>
+                  <Typography variant="h6" component="p" sx={typographyStyle}>
+                    {endDate}
+                  </Typography>
+                  <Typography variant="h6" component="p" sx={typographyStyle}>
+                    {destination}
+                  </Typography>
+                  <Typography variant="body2" component="p" sx={typographyStyle}>
+                    {endTime}
+                  </Typography>
+                </Stack>
+                <LocationOnIcon sx={{ display: { xs: 'none', sm: 'flex' } }} />
               </Stack>
-              <LocationOnIcon />
             </Stack>
             <Divider flexItem orientation="horizontal" sx={{ backgroundColor: 'primary.main', height: 1 }} />
-            <ImageList variant="quilted" cols={1} sx={{ width: '100%', height: '300px' }}>
+            <ImageList variant="quilted" cols={1} sx={{ width: '100%', height: { xs: '140px', sm: '220px', md: '300px' } }}>
               <ImageListItem sx={{ overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
                 <img src={carImage} alt={carMake} title={carMake} loading="lazy" />
               </ImageListItem>

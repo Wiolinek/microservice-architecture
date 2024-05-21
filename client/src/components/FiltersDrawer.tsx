@@ -20,7 +20,7 @@ const FiltersDrawer = () => {
   };
 
   const drawerList = (
-    <Box role="menu" sx={{ width: drawerWidth, px: 3 }} onClick={toggleDrawer(false)}>
+    <Box role="menu" sx={{ width: drawerWidth, px: { xs: 0, sm: 2 } }} onClick={toggleDrawer(false)}>
       <List sx={{ py: 3, px: 2 }}>
         <ListItem disablePadding>
           <ListItemButton>
@@ -64,7 +64,7 @@ const FiltersDrawer = () => {
           ['& .MuiDrawer-paper']: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'transparent' },
         }}>
         <Toolbar />
-        <Toolbar sx={{ bgcolor: 'primary.light' }} style={{ paddingLeft: '48px', paddingTop: '8px' }}>
+        <Toolbar sx={{ bgcolor: 'primary.light', pt: { xs: 0, sm: '3.13rem' } }} style={{ paddingLeft: '3rem' }}>
           <IconButton aria-label="close filters" onClick={toggleDrawer(false)} sx={{ bgcolor: 'primary.main' }}>
             <CloseIcon sx={{ color: 'primary.light' }} />
           </IconButton>

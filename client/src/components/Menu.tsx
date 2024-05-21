@@ -34,7 +34,7 @@ const CustomMenu = () => {
   };
 
   return (
-    <Toolbar sx={{ flexGrow: 1 }}>
+    <Toolbar sx={{ flexGrow: 1, px: { xs: 0, md: 3 } }}>
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
         <IconButton color="primary" aria-label="test" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu}>
           <MenuIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: { xs: 0, md: 2 } }} />

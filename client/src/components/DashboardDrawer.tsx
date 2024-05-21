@@ -37,7 +37,7 @@ const DashboardDrawer = () => {
       variant="permanent"
       anchor="left">
       <Toolbar />
-      <List sx={{ display: 'flex', flexDirection: 'column', gap: 3, padding: 6 }}>{userMenuList}</List>
+      <List sx={{ display: 'flex', flexDirection: 'column', gap: 3, padding: { xs: 4, sm: 6 } }}>{userMenuList}</List>
       <Divider />
     </Drawer>
   );

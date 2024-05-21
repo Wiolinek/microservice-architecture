@@ -15,9 +15,9 @@ const Navbar = () => {
         zIndex: 2,
         ['&.MuiPaper-root']: { backgroundColor: 'primary.light' },
       }}>
-      <Toolbar>
+      <Toolbar sx={{ px: { xs: '3rem', md: 3 } }}>
         <CustomMenu />
-        <Box display="flex" alignItems="bottom" gap={3} p={1} pr={3}>
+        <Box display="flex" alignItems="bottom" gap={3} p={1} pr={{ xs: 0, md: 2 }}>
           <NavLink to={'/'} style={{ textDecoration: 'none', width: '100%' }}>
             <Button size="medium" className="logo">
               <Typography
