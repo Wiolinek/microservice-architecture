@@ -8,7 +8,7 @@ interface BannerProps {
 
 const Banner = ({ title, subtitle }: BannerProps) => {
   return (
-    <Stack direction="column" spacing={1} style={{ marginTop: 48 }}>
+    <Stack data-testid="page-banner" direction="column" spacing={1} style={{ marginTop: 48 }}>
       {title && (
         <Typography variant="h4" component="h1" sx={{ fontSize: '4rem', fontWeight: 900 }}>
           {title}

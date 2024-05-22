@@ -6,10 +6,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import { navigationLogoText } from '@data/constants';
 
 const Navbar = () => {
   return (
     <AppBar
+      data-testid="navigation-bar"
       position="fixed"
       sx={{
         zIndex: 2,
@@ -31,7 +33,7 @@ const Navbar = () => {
                   pr: 1,
                   textAlign: 'start',
                 }}>
-                Share Your Ride
+                {navigationLogoText}
               </Typography>
               <DirectionsCarIcon fontSize="large" />
             </Button>

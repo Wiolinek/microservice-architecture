@@ -1,5 +1,7 @@
 import { LoginFormValues, RegisterFormValues, AddRideFormValues } from '@components/form/interfaces';
 
+export const navigationLogoText = 'Share Your Ride';
+
 export const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 export const phoneNumberRegex = /^[0-9]/;
 
