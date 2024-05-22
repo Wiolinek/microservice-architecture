@@ -22,6 +22,7 @@ export default {
     "<rootDir>/components/**/*.tsx",
     "<rootDir>/features/**/*.tsx",
     "<rootDir>/pages/**/*.tsx",
+    "!<rootDir>/data/**/*.tsx",
   ],
   coverageThreshold: {
     global: {
