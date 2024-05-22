@@ -14,6 +14,7 @@ export default {
     "@layouts(.*)$": "<rootDir>/layouts$1",
     "@data(.*)$": "<rootDir>/data$1",
   },
+  setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
   collectCoverageFrom: [
     "src/**/*.tsx",
     "<rootDir>/**/*.tsx",
