@@ -27,7 +27,10 @@ const Ride = () => {
   }, [rideId, setHeight]);
 
   return (
-    <Paper sx={{ height: 'max-content', p: 2, color: 'primary.light', backgroundColor: 'primary.main' }} ref={rideDetails}>
+    <Paper
+      data-testid="single-ride-page"
+      sx={{ height: 'max-content', p: 2, color: 'primary.light', backgroundColor: 'primary.main' }}
+      ref={rideDetails}>
       <Stack spacing={3}>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Link to="/" style={{ alignSelf: 'self-start' }}>

@@ -4,7 +4,7 @@ import DashboardDrawer from '@components/DashboardDrawer';
 
 const Dashboard = () => {
   return (
-    <PageWrapper>
+    <PageWrapper data-testid="dashboard-page">
       <DashboardDrawer />
       <Outlet />
     </PageWrapper>

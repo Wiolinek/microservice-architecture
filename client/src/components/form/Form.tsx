@@ -12,7 +12,7 @@ const Form = ({ formType, formSchema, defaultValues }: FormProps) => {
   });
 
   return (
-    <FormProvider {...methods}>
+    <FormProvider {...methods} data-testid="form">
       <Paper sx={{ height: 'max-content', width: 'min-content', mt: 9, p: 2, color: 'primary.main', backgroundColor: 'primary.light' }}>
         {formType}
       </Paper>

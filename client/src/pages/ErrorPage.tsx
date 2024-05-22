@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 const ErrorPage = () => {
   return (
-    <PageWrapper>
+    <PageWrapper data-testid="error-page">
       <Stack direction="column" alignItems="center" spacing={6}>
         <Banner title="Ooops.. Something went wrong!" />
       </Stack>

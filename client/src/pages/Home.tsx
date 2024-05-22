@@ -4,7 +4,7 @@ import FiltersDrawer from '@components/FiltersDrawer';
 import RidesList from '@components/RidesList';
 import Banner from '@layouts/Banner';
 
-const homeTitle = 'Find your perfect ride';
+export const homeTitle = 'Find your perfect ride';
 const homeSubtitle = 'for the best price';
 const singleRidePageTitle = 'Book & go...';
 
@@ -13,11 +13,11 @@ const Home = () => {
   const isDrawerVisible = pathname === '/' || pathname.includes('/ride');
 
   return (
-    <PageWrapper>
-      {isDrawerVisible && <FiltersDrawer />}
-      {pathname === '/' && <Banner title={homeTitle} subtitle={homeSubtitle}></Banner>}
+    <PageWrapper data-testid="home-page">
+      {isDrawerVisible && <FiltersDrawer data-testid="filters-drawer" />}
+      {pathname === '/' && <Banner data-testid="home-page1" title={homeTitle} subtitle={homeSubtitle}></Banner>}
       {pathname.includes('/ride') && <Banner title={singleRidePageTitle}></Banner>}
-      <RidesList />
+      <RidesList data-testid="home-page-rides" />
     </PageWrapper>
   );
 };
