@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Navbar from '@layouts/Navbar';
 import { navigationLogoText } from '@data/constants';
@@ -10,7 +10,9 @@ describe('home page component', () => {
         <Navbar />
       </MemoryRouter>
     );
-    const element = screen.getByTestId('navigation-bar');
-    expect(element).toHaveTextContent(navigationLogoText);
+
+    waitFor(() => {
+      expect(screen.getByTestId('navigation-bar')).toHaveTextContent(navigationLogoText);
+    });
   });
 });
