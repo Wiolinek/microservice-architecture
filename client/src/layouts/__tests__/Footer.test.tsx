@@ -2,17 +2,17 @@ import { render, screen } from '@testing-library/react';
 import Footer from '@layouts/Footer';
 
 describe('Footer', () => {
-  test('renders corectly', () => {
+  test('renders correctly', () => {
     render(<Footer />);
 
     const element = screen.getByTestId('footer');
     expect(element).toBeInTheDocument();
   });
 
-  test('title and sibtitle are visible', () => {
+  test('text content is visible', () => {
     render(<Footer />);
 
     const element = screen.getByTestId('footer');
-    expect(element).toBeInTheDocument();
+    expect(element).toHaveTextContent('All Rights Reserved');
   });
 });
