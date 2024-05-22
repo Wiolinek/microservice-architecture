@@ -34,7 +34,7 @@ const CustomMenu = () => {
   };
 
   return (
-    <Toolbar sx={{ flexGrow: 1, px: { xs: 0, md: 3 } }}>
+    <Toolbar data-testid="menu" sx={{ flexGrow: 1, px: { xs: 0, md: 3 } }}>
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
         <IconButton color="primary" aria-label="test" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu}>
           <MenuIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: { xs: 0, md: 2 } }} />
@@ -76,7 +76,6 @@ const CustomMenu = () => {
               )}
             </NavLink>
           </MenuItem>
-          {/* {pathname.includes('inbox') && ( */}
           <MenuItem onClick={handleCloseNavMenu} sx={{ width: '100%' }}>
             <NavLink to={'/dashboard'} style={{ textDecoration: 'none', width: '100%' }}>
               {({ isActive }) => (
@@ -87,7 +86,6 @@ const CustomMenu = () => {
               )}
             </NavLink>
           </MenuItem>
-          {/* )} */}
           <MenuItem onClick={handleCloseNavMenu}>
             <NavLink to={'/login'} style={{ textDecoration: 'none', width: '100%' }}>
               {({ isActive }) => (
@@ -130,7 +128,6 @@ const CustomMenu = () => {
           </NavLink>
         </Box>
         <Box sx={{ flexGrow: 1, justifyContent: 'flex-end', display: { xs: 'none', md: 'flex', gap: 16 } }}>
-          {/* {pathname.includes('inbox') && ( */}
           <NavLink to={'/dashboard'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
             {({ isActive }) => (
               <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
@@ -139,7 +136,6 @@ const CustomMenu = () => {
               </Button>
             )}
           </NavLink>
-          {/* )} */}
           <NavLink to={'/login'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
             {({ isActive }) => (
               <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
@@ -148,7 +144,7 @@ const CustomMenu = () => {
               </Button>
             )}
           </NavLink>
-          <NavLink to={'/register'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
+          <NavLink data-testid="register-button" to={'/register'} onClick={handleCloseNavMenu} style={navLinkStyleDesktop}>
             {({ isActive }) => (
               <Button sx={{ textDecoration: 'none', width: '100%' }} variant={isActive ? 'contained' : 'outlined'} size="medium">
                 <PersonAddIcon sx={{ mr: 1 }} />

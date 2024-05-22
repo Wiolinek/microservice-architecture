@@ -53,7 +53,7 @@ const RideCard = ({
   carImage,
 }: Ride) => {
   return (
-    <Grid item xs={12} md={6} xl={4}>
+    <Grid data-testid="ride-card" item xs={12} md={6} xl={4}>
       <ListItem key={id} disablePadding sx={{ display: 'block' }}>
         <Paper sx={{ p: 2 }}>
           <Checkbox

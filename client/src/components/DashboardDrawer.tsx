@@ -10,7 +10,7 @@ import { drawerWidth } from '@data/constants';
 
 const userMenuList = userMenuItemsList.map((item) => {
   return (
-    <ListItem key={item.title} disablePadding>
+    <ListItem key={item.title} disablePadding data-testid="dashboard-side-menu">
       <NavLink to={item.link} style={{ textDecoration: 'none', width: '100%' }}>
         {({ isActive }) => (
           <Button variant={isActive ? 'contained' : 'outlined'} size="medium" sx={{ width: '100%', justifyContent: 'flex-start' }}>
