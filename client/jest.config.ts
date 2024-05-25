@@ -13,6 +13,7 @@ export default {
     "@components(.*)$": "<rootDir>/components$1",
     "@layouts(.*)$": "<rootDir>/layouts$1",
     "@data(.*)$": "<rootDir>/data$1",
+    "@store(.*)$": "<rootDir>/store$1",
   },
   setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
   collectCoverageFrom: [

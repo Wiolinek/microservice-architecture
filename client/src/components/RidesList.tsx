@@ -3,11 +3,14 @@ import { Outlet, useLocation } from 'react-router-dom';
 import RideCard from '@components/RideCard';
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
-import { defaultRidesList, Ride } from '@data/defaultRidesList';
+import { Ride } from '@pages/Ride';
+import { useGetAllDefaultRidesQuery } from '@store/api';
 
 const RidesList = () => {
   const { pathname } = useLocation();
   const [height, setHeight] = useState<number>(100);
+  const { data: ridesListData, isError, error, isLoading } = useGetAllDefaultRidesQuery();
+
   return (
     <Grid data-testid="rides-list" container direction="row" spacing={3} style={{ marginLeft: -24, marginTop: 48 }}>
       <Grid
@@ -22,22 +25,26 @@ const RidesList = () => {
               : { overflow: 'auto' }
           }>
           <Grid container direction={{ xs: 'column', md: pathname.includes('/ride/') ? 'column' : 'row' }} spacing={3}>
-            {defaultRidesList.map((ride: Ride) => (
-              <RideCard
-                key={ride.id}
-                id={ride.id}
-                start={ride.start}
-                destination={ride.destination}
-                startDate={ride.startDate}
-                startTime={ride.startTime}
-                endDate={ride.endDate}
-                endTime={ride.endTime}
-                totalSeats={ride.totalSeats}
-                freeSeats={ride.freeSeats}
-                price={ride.price}
-                carMake={ride.carMake}
-                carImage={ride.carImage}></RideCard>
-            ))}
+            {error && <div>error</div>}
+            {isLoading && <div>loading</div>}
+            {!isLoading &&
+              !isError &&
+              ridesListData?.map((ride: Ride) => (
+                <RideCard
+                  key={ride.id}
+                  id={ride.id}
+                  start={ride.start}
+                  destination={ride.destination}
+                  startDate={ride.startDate}
+                  startTime={ride.startTime}
+                  endDate={ride.endDate}
+                  endTime={ride.endTime}
+                  totalSeats={ride.totalSeats}
+                  freeSeats={ride.freeSeats}
+                  price={ride.price}
+                  carMake={ride.carMake}
+                  carImage={ride.carImage}></RideCard>
+              ))}
           </Grid>
         </List>
       </Grid>

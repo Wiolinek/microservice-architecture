@@ -1,6 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { routes } from '@data/routes';
+// import { ridesApi } from './store/api';
+import { store, persistor } from './store/store';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+// import { ApiProvider } from '@reduxjs/toolkit/query/react';
 import './App.css';
 
 const router = createBrowserRouter(routes);
@@ -50,9 +55,15 @@ const theme = createTheme({
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <Provider store={store}>
+      {/* <ApiProvider api={ridesApi}> */}
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </PersistGate>
+      {/* </ApiProvider> */}
+    </Provider>
   );
 };
 

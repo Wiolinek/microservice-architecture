@@ -17,7 +17,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PaidIcon from '@mui/icons-material/Paid';
-import { Ride } from '@data/defaultRidesList';
+import { Ride } from '@pages/Ride';
 
 export const typographyStyle = {
   fontWeight: 700,
