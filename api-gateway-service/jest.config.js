@@ -22,7 +22,7 @@ const config = {
     },
     coverageReporters: ['text-summary', 'lcov'],
     moduleNameMapper: {
-        '@gateway/(.*)': ['<rootDir>/src/$1']
+        '@api-gateway-service/(.*)': ['<rootDir>/src/$1']
     }
 };
 exports.default = config;
