@@ -1,6 +1,6 @@
 require('dotenv').config();
 import express from 'express';
-import { StatusCodes } from 'http-status-codes';
+// import { StatusCodes } from 'http-status-codes';
 import cookieParser from 'cookie-parser';
 // import { Logger } from 'winston';
 import winston from 'express-winston';
@@ -11,6 +11,7 @@ import cors from 'cors';
 import hpp from 'hpp';
 import helmet from 'helmet';
 import config from './config';
+// import checkConnection from './elasticsearch';
 
 const app = express();
 
@@ -62,13 +63,15 @@ app.use(cookieParser());
 //routy
 
 // elastic
+// checkConnection();
+
 
 // error handler
-app.use('*', (_req: express.Request, res: express.Response, next: express.NextFunction) => {
-  // const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
-  // log.log('error', fullUrl + 'does not exist');
-  res.status(StatusCodes.NOT_FOUND).json({ message: 'Not found' });
-  next();
-});
+// app.use('*', (_req: express.Request, res: express.Response, next: express.NextFunction) => {
+//   // const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+//   // log.log('error', fullUrl + 'does not exist');
+//   res.status(StatusCodes.NOT_FOUND).json({ message: 'Not found' });
+//   next();
+// });
 
 export default app;
