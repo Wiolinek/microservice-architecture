@@ -6,7 +6,9 @@ import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { RegisterFormSchema } from '@components/form/schema/schema';
+import { VisuallyHiddenInputStyle } from './customStyles';
 import { DevTool } from '@hookform/devtools';
 
 const RegisterForm = () => {
@@ -27,44 +29,64 @@ const RegisterForm = () => {
   return (
     <>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
-        <Stack spacing={4} style={{ marginTop: 16 }} sx={{ width: { xs: 220, sm: 350 } }}>
-          <TextField {...register('email')} label="Email" type="email" error={!!errors.email} helperText={errors.email?.message} />
-          <TextField {...register('name')} label="Name" type="name" error={!!errors.name} helperText={errors.name?.message} />
-          <TextField {...register('phone')} label="Phone number" type="tel" error={!!errors.phone} helperText={errors.phone?.message} />
-          <TextField
-            {...register('password')}
-            label="Password"
-            type="password"
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-          <TextField
-            {...register('repeatPassword')}
-            label="Repeat password"
-            type="password"
-            error={!!errors.repeatPassword}
-            helperText={errors.repeatPassword?.message}
-          />
-          <FormControl>
-            <FormLabel component="legend">I am:</FormLabel>
-            <FormControlLabel control={<Checkbox {...register('isDriver')} size="medium" />} label="driver" />
-            <FormControlLabel control={<Checkbox {...register('isPassenger')} size="medium" />} label="passenger" />
-          </FormControl>
-          {getValues('isDriver') && (
-            <>
-              <TextField {...register('carMake')} label="Car make" error={!!errors.carMake} helperText={errors.carMake?.message} />
-              <TextField
-                {...register('carImage')}
-                label="Add your car image"
-                type="file"
-                error={!!errors.carImage}
-                helperText={errors.carImage?.message}
-              />
-            </>
-          )}
-          <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
-            Register
-          </Button>
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} style={{ marginTop: 16 }}>
+          <Stack spacing={4} sx={{ width: { xs: 220, sm: 350 } }}>
+            <TextField {...register('email')} label="Email" type="email" error={!!errors.email} helperText={errors.email?.message} />
+            <TextField {...register('name')} label="Name" type="name" error={!!errors.name} helperText={errors.name?.message} />
+            <TextField {...register('phone')} label="Phone number" type="tel" error={!!errors.phone} helperText={errors.phone?.message} />
+            <TextField
+              {...register('password')}
+              label="Password"
+              type="password"
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+            <TextField
+              {...register('repeatPassword')}
+              label="Repeat password"
+              type="password"
+              error={!!errors.repeatPassword}
+              helperText={errors.repeatPassword?.message}
+            />
+          </Stack>
+
+          <Stack spacing={3} justifyContent="space-between" sx={{ width: { xs: 220, sm: 350 } }}>
+            <Stack spacing={3}>
+              <FormControl>
+                <FormLabel component="legend">I am:</FormLabel>
+                <FormControlLabel control={<Checkbox {...register('isDriver')} size="medium" />} label="driver" />
+                <FormControlLabel control={<Checkbox {...register('isPassenger')} size="medium" />} label="passenger" />
+              </FormControl>
+              {getValues('isDriver') && (
+                <>
+                  <TextField {...register('carMake')} label="Car make" error={!!errors.carMake} helperText={errors.carMake?.message} />
+                  <Button
+                    component="label"
+                    role={undefined}
+                    variant="contained"
+                    tabIndex={-1}
+                    sx={{ height: 56 }}
+                    startIcon={<CloudUploadIcon sx={{ mr: 1 }} />}>
+                    Add your car image
+                    <TextField
+                      {...register('carImage')}
+                      type="file"
+                      inputProps={{ accept: 'image/*' }}
+                      error={!!errors.carImage}
+                      helperText={errors.carImage?.message}
+                      sx={VisuallyHiddenInputStyle}
+                    />
+                  </Button>
+                </>
+              )}
+            </Stack>
+
+            <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }} alignItems="flex-end">
+              <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
+                Register
+              </Button>
+            </Stack>
+          </Stack>
         </Stack>
       </form>
       <DevTool control={control} />

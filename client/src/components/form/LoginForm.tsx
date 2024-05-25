@@ -22,7 +22,7 @@ const LoginForm = () => {
   return (
     <>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
-        <Stack spacing={4} style={{ marginTop: 16 }} sx={{ width: { xs: 220, sm: 350 } }}>
+        <Stack spacing={3} style={{ marginTop: 16 }} sx={{ width: { xs: 220, sm: 350 } }}>
           <TextField
             {...register('email', { required: 'Email is required' })}
             label="Email"
@@ -37,9 +37,11 @@ const LoginForm = () => {
             error={!!errors.password}
             helperText={errors.password?.message}
           />
-          <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
-            LogIn
-          </Button>
+          <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }} alignItems="flex-end">
+            <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
+              LogIn
+            </Button>
+          </Stack>
         </Stack>
       </form>
       <DevTool control={control} />

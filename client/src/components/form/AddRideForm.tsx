@@ -2,7 +2,9 @@ import { useFormContext } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { AddRideFormSchema } from '@components/form/schema/schema';
+import { VisuallyHiddenInputStyle } from './customStyles';
 import { DevTool } from '@hookform/devtools';
 
 const AddRideForm = () => {
@@ -32,13 +34,23 @@ const AddRideForm = () => {
             </Stack>
             <Stack>
               <TextField {...register('carMake')} label="Car make" error={!!errors.carMake} helperText={errors.carMake?.message} />
-              <TextField
-                {...register('carImage')}
-                label="Add your car image"
-                type="file"
-                error={!!errors.carImage}
-                helperText={errors.carImage?.message}
-              />
+              <Button
+                component="label"
+                role={undefined}
+                variant="contained"
+                tabIndex={-1}
+                sx={{ height: 56 }}
+                startIcon={<CloudUploadIcon sx={{ mr: 1 }} />}>
+                Add your car image
+                <TextField
+                  {...register('carImage')}
+                  type="file"
+                  inputProps={{ accept: 'image/*' }}
+                  error={!!errors.carImage}
+                  helperText={errors.carImage?.message}
+                  sx={VisuallyHiddenInputStyle}
+                />
+              </Button>
 
               <TextField
                 {...register('freeSeats')}
