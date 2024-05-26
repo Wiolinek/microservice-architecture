@@ -47,7 +47,7 @@ const AddRideForm = () => {
                   type="file"
                   inputProps={{ accept: 'image/*' }}
                   error={!!errors.carImage}
-                  helperText={errors.carImage?.message}
+                  helperText={errors.carImage?.message as string}
                   sx={VisuallyHiddenInputStyle}
                 />
               </Button>
