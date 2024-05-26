@@ -3,8 +3,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { AddRideFormSchema } from '@components/form/schema/schema';
-import { VisuallyHiddenInputStyle } from './customStyles';
+import { AddRideFormSchema } from '@features/authentication/schema/schema';
+import { VisuallyHiddenInputStyle } from '@features/authentication/components/styles/customStyles';
 import { DevTool } from '@hookform/devtools';
 
 const AddRideForm = () => {

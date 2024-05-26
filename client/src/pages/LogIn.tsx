@@ -3,9 +3,9 @@ import PageWrapper from '@layouts/PageWrapper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Form from '@components/form/Form';
-import LoginForm from '@components/form/LoginForm';
+import LoginForm from '@features/authentication/components/LoginForm';
 import Banner from '@layouts/Banner';
-import { loginFormSchema } from '@components/form/schema/schema';
+import { loginFormSchema } from '@features/authentication/schema/schema';
 import { loginDefaultValues } from '@data/constants';
 
 const LogIn = () => {

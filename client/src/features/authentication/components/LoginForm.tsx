@@ -2,8 +2,11 @@ import { useFormContext } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { LoginFormSchema } from '@components/form/schema/schema';
+import { LoginFormSchema } from '@features/authentication/schema/schema';
 import { DevTool } from '@hookform/devtools';
+import { useDispatch } from 'react-redux';
+// import { logInStart, logInFailure, logInSuccess } from '@app/store/userSlice';
+import { logInStart } from '@store/userSlice';
 
 const LoginForm = () => {
   const {
@@ -14,9 +17,11 @@ const LoginForm = () => {
     handleSubmit,
     formState: { isDirty, isSubmitting, /*isSubmitted, isSubmitSuccessful, */ errors },
   } = useFormContext<LoginFormSchema>();
+  const dispatch = useDispatch();
 
   const onSubmit = (data: LoginFormSchema) => {
     console.log(data);
+    dispatch(logInStart());
   };
 
   return (

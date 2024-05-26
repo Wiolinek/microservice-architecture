@@ -11,8 +11,8 @@ import ImageListItem from '@mui/material/ImageListItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormGroup from '@mui/material/FormGroup';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { RegisterFormSchema } from '@components/form/schema/schema';
-import { VisuallyHiddenInputStyle } from './customStyles';
+import { RegisterFormSchema } from '@features/authentication/schema/schema';
+import { VisuallyHiddenInputStyle } from '@features/authentication/components/styles/customStyles';
 
 const RegisterForm = () => {
   const {

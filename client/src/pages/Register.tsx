@@ -3,9 +3,9 @@ import PageWrapper from '@layouts/PageWrapper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Form from '@components/form/Form';
-import RegisterForm from '@components/form/RegisterForm';
+import RegisterForm from '@features/authentication/components/RegisterForm';
 import Banner from '@layouts/Banner';
-import { registerFormSchema } from '@components/form/schema/schema';
+import { registerFormSchema } from '@features/authentication/schema/schema';
 import { registerDefaultValues } from '@data/constants';
 
 export const registerTitle = 'Create new account';
