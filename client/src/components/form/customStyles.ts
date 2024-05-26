@@ -6,5 +6,5 @@ export const VisuallyHiddenInputStyle = {
   whiteSpace: 'nowrap',
   width: 1,
   ['& .MuiOutlinedInput-root']: { display: 'none' },
-  ['& .Mui-error']: { position: 'absolute', bottom: '-26px' },
+  ['& .Mui-error']: { position: 'absolute', bottom: '-26px', textTransform: 'lowercase' },
 };

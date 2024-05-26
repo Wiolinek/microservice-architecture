@@ -74,7 +74,12 @@ const RegisterForm = () => {
               </FormGroup>
               {watchDriverRole ? (
                 <>
-                  <TextField label="Car make" {...register('carMake')} error={!!errors.carMake} helperText={errors.carMake?.message} />
+                  <TextField
+                    label="Car make"
+                    {...register('carMake')}
+                    error={!!errors.carMake}
+                    helperText={errors.carMake?.message as string}
+                  />
                   {watchCarImage?.length > 0 ? (
                     <ImageList variant="quilted" cols={1} sx={{ height: '140px', width: 'fit-content' }}>
                       <ImageListItem sx={{ overflow: 'hidden' }}>
@@ -102,7 +107,7 @@ const RegisterForm = () => {
                       {...register('carImage')}
                       inputProps={{ accept: 'image/*' }}
                       error={!!errors.carImage}
-                      helperText={errors.carImage?.message}
+                      helperText={errors.carImage?.message as string}
                       sx={VisuallyHiddenInputStyle}
                     />
                   </Button>
