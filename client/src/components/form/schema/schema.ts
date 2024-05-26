@@ -12,26 +12,52 @@ export const loginFormSchema = z.object({
 
 export type LoginFormSchema = z.infer<typeof loginFormSchema>;
 
-export const registerFormSchema = z.object({
-  email: z
-    .string()
-    .min(5, { message: 'Email address should have at least 5 characters' })
-    .refine((email) => EMAIL_REGEX.test(email), { message: 'Email address is not valid' }),
-  name: z.string().min(2, { message: 'Name should have at least 2 characters' }),
-  phone: z
-    .string()
-    .min(9, { message: 'Phone number should have at least 9 characters' })
-    .refine((phone) => PHONE_NUMBER_REGEX.test(phone), { message: 'Phone number is not valid' }),
-  password: z.string().min(8, { message: 'Password should have at least 8 characters' }),
-  repeatPassword: z.string().min(8, { message: 'Password should have at least 8 characters' }),
-  isDriver: z.boolean(),
-  isPassenger: z.boolean(),
-  carMake: z.string().min(2, { message: 'Car make should have at least 2 characters' }),
-  carImage: z
-    .any()
-    .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
-    .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file?.type), 'Only .jpg, .jpeg, .png and .webp formats are supported.'),
-});
+export const requiredRegisterFormSchema = z
+  .object({
+    email: z
+      .string()
+      .min(5, { message: 'Email address should have at least 5 characters' })
+      .refine((email) => EMAIL_REGEX.test(email), { message: 'Email address is not valid' }),
+    name: z.string().min(2, { message: 'Name should have at least 2 characters' }),
+    phone: z
+      .string()
+      .min(9, { message: 'Phone number should have at least 9 characters' })
+      .refine((phone) => PHONE_NUMBER_REGEX.test(phone), { message: 'Phone number is not valid' }),
+    password: z.string().min(8, { message: 'Password should have at least 8 characters' }),
+    repeatPassword: z.string().min(8, { message: 'Password should have at least 8 characters' }),
+  })
+  .superRefine(({ repeatPassword, password }, ctx) => {
+    if (repeatPassword !== password) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'Passwords do not match',
+        path: ['repeatPassword'],
+      });
+    }
+  });
+
+export const optionalRegisterFormSchema = z.discriminatedUnion('isDriver', [
+  z.object({
+    isDriver: z.literal(true),
+    carMake: z.string().min(2, { message: 'Car make should have at least 2 characters' }),
+    carImage: z
+      .any()
+      .refine((files) => files?.length == 1, 'Image is required.')
+      .refine((files) => files?.[0]?.size <= MAX_FILE_SIZE, 'Max file size is 5MB.')
+      .refine((files) => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type), '.jpg, .jpeg, .png and .webp files are accepted.'),
+    isPassenger: z.boolean(),
+  }),
+  z.object({
+    isDriver: z.literal(false),
+    carMake: z.any(),
+    carImage: z.any(),
+    isPassenger: z.literal(true, {
+      errorMap: () => ({ message: 'At least one option needs to be checked' }),
+    }),
+  }),
+]);
+
+export const registerFormSchema = z.intersection(requiredRegisterFormSchema, optionalRegisterFormSchema);
 
 export type RegisterFormSchema = z.infer<typeof registerFormSchema>;
 

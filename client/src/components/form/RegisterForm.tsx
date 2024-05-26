@@ -1,30 +1,44 @@
+import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormGroup from '@mui/material/FormGroup';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { RegisterFormSchema } from '@components/form/schema/schema';
 import { VisuallyHiddenInputStyle } from './customStyles';
-import { DevTool } from '@hookform/devtools';
 
 const RegisterForm = () => {
   const {
-    control,
     register,
-    // reset,
-    // setValue,
+    unregister,
     getValues,
     handleSubmit,
+    watch,
     formState: { isDirty, isSubmitting, /*isSubmitted, isSubmitSuccessful, */ errors },
   } = useFormContext<RegisterFormSchema>();
+  const watchDriverRole = watch('isDriver');
+  const watchCarImage = watch('carImage');
 
   const onSubmit = (data: RegisterFormSchema) => {
     console.log(data);
   };
+
+  useEffect(() => {
+    if (watchDriverRole) {
+      register('carMake');
+      register('carImage');
+    } else {
+      unregister('carMake');
+      unregister('carImage');
+    }
+  }, [register, unregister, watchDriverRole]);
 
   return (
     <>
@@ -52,14 +66,29 @@ const RegisterForm = () => {
 
           <Stack spacing={3} justifyContent="space-between" sx={{ width: { xs: 220, sm: 350 } }}>
             <Stack spacing={3}>
-              <FormControl>
+              <FormGroup>
                 <FormLabel component="legend">I am:</FormLabel>
                 <FormControlLabel control={<Checkbox {...register('isDriver')} size="medium" />} label="driver" />
                 <FormControlLabel control={<Checkbox {...register('isPassenger')} size="medium" />} label="passenger" />
-              </FormControl>
-              {getValues('isDriver') && (
+                {!watchDriverRole && <FormHelperText error>{!watchDriverRole && errors.isPassenger?.message}</FormHelperText>}
+              </FormGroup>
+              {watchDriverRole ? (
                 <>
-                  <TextField {...register('carMake')} label="Car make" error={!!errors.carMake} helperText={errors.carMake?.message} />
+                  <TextField label="Car make" {...register('carMake')} error={!!errors.carMake} helperText={errors.carMake?.message} />
+                  {watchCarImage?.length > 0 ? (
+                    <ImageList variant="quilted" cols={1} sx={{ height: '140px', width: 'fit-content' }}>
+                      <ImageListItem sx={{ overflow: 'hidden' }}>
+                        <img
+                          src={URL.createObjectURL(getValues('carImage')[0])}
+                          alt={getValues('carMake')}
+                          title={getValues('carMake')}
+                          loading="lazy"
+                          style={{ objectFit: 'contain' }}
+                        />
+                      </ImageListItem>
+                    </ImageList>
+                  ) : null}
+
                   <Button
                     component="label"
                     role={undefined}
@@ -67,10 +96,10 @@ const RegisterForm = () => {
                     tabIndex={-1}
                     sx={{ height: 56 }}
                     startIcon={<CloudUploadIcon sx={{ mr: 1 }} />}>
-                    Add your car image
+                    {watchCarImage?.length ? 'Change your car image' : 'Add your car image'}
                     <TextField
-                      {...register('carImage')}
                       type="file"
+                      {...register('carImage')}
                       inputProps={{ accept: 'image/*' }}
                       error={!!errors.carImage}
                       helperText={errors.carImage?.message}
@@ -78,7 +107,7 @@ const RegisterForm = () => {
                     />
                   </Button>
                 </>
-              )}
+              ) : null}
             </Stack>
 
             <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }} alignItems="flex-end">
@@ -89,7 +118,6 @@ const RegisterForm = () => {
           </Stack>
         </Stack>
       </form>
-      <DevTool control={control} />
     </>
   );
 };
