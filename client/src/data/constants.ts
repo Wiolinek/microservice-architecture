@@ -1,4 +1,5 @@
-import { LoginFormValues, RegisterFormValues, AddRideFormValues } from '@components/form/interfaces';
+import { AddRideFormValues } from '@components/form/interfaces';
+import { LoginFormValues, RegisterFormValues } from '@features/authentication/interfaces/interfaces';
 
 export const navigationLogoText = 'Share Your Ride';
 
