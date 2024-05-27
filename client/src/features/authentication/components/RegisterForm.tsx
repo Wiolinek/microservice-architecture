@@ -44,7 +44,7 @@ const RegisterForm = () => {
     <>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} style={{ marginTop: 16 }}>
-          <Stack spacing={4} sx={{ width: { xs: 220, sm: 350 } }}>
+          <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }}>
             <TextField {...register('email')} label="Email" type="email" error={!!errors.email} helperText={errors.email?.message} />
             <TextField {...register('name')} label="Name" type="name" error={!!errors.name} helperText={errors.name?.message} />
             <TextField {...register('phone')} label="Phone number" type="tel" error={!!errors.phone} helperText={errors.phone?.message} />
@@ -115,7 +115,7 @@ const RegisterForm = () => {
               ) : null}
             </Stack>
 
-            <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }} alignItems="flex-end">
+            <Stack spacing={3} alignItems="flex-end">
               <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
                 Register
               </Button>

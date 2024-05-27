@@ -2,6 +2,8 @@ import { useFormContext } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { AddRideFormSchema } from '@features/authentication/schema/schema';
 import { VisuallyHiddenInputStyle } from '@features/authentication/components/styles/customStyles';
@@ -25,14 +27,21 @@ const AddRideForm = () => {
   return (
     <>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
-        <Stack spacing={4} style={{ marginTop: 16 }} sx={{ width: { xs: 220, sm: 350 }, flexWrap: 'wrap' }} direction="column">
-          <Stack direction="row">
-            <Stack>
+        <Stack spacing={3} style={{ marginTop: 16 }}>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={3}>
+            <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }}>
               <TextField {...register('name')} label="Name" type="name" error={!!errors.name} helperText={errors.name?.message} />
               <TextField {...register('email')} label="Email" type="email" error={!!errors.email} helperText={errors.email?.message} />
               <TextField {...register('phone')} label="Phone number" type="tel" error={!!errors.phone} helperText={errors.phone?.message} />
             </Stack>
-            <Stack>
+            <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }}>
+              <TextField
+                {...register('freeSeats')}
+                label="Available seats"
+                type="number"
+                error={!!errors.freeSeats}
+                helperText={errors.freeSeats?.message}
+              />
               <TextField {...register('carMake')} label="Car make" error={!!errors.carMake} helperText={errors.carMake?.message} />
               <Button
                 component="label"
@@ -51,24 +60,15 @@ const AddRideForm = () => {
                   sx={VisuallyHiddenInputStyle}
                 />
               </Button>
-
-              <TextField
-                {...register('freeSeats')}
-                label="Available seats"
-                type="number"
-                error={!!errors.freeSeats}
-                helperText={errors.freeSeats?.message}
-              />
             </Stack>
           </Stack>
-
-          <Stack direction="row">
-            <Stack>
+          <Divider flexItem orientation="horizontal" sx={{ backgroundColor: 'primary.main', height: 1 }} />
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={3}>
+            <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }}>
               <TextField {...register('start')} label="Start" error={!!errors.start} helperText={errors.start?.message} />
-              <TextField {...register('startDate')} label="Start date" error={!!errors.startDate} helperText={errors.startDate?.message} />
               <TextField {...register('startTime')} label="Start time" error={!!errors.startTime} helperText={errors.startTime?.message} />
             </Stack>
-            <Stack>
+            <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }}>
               <TextField
                 {...register('destination')}
                 label="Destination"
@@ -79,14 +79,20 @@ const AddRideForm = () => {
               <TextField {...register('endTime')} label="End time" error={!!errors.endTime} helperText={errors.endTime?.message} />
             </Stack>
           </Stack>
-
-          <Stack>
-            <TextField {...register('price')} label="Price" type="number" error={!!errors.price} helperText={errors.price?.message} />
+          <Divider flexItem orientation="horizontal" sx={{ backgroundColor: 'primary.main', height: 1 }} />
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} justifyContent="space-between">
+            <Stack direction="row" alignItems="flex-end" spacing={3} sx={{ width: { xs: 150, md: 220 } }}>
+              <TextField {...register('price')} label="Price" type="number" error={!!errors.price} helperText={errors.price?.message} />
+              <Typography variant="h6" component="p">
+                PLN
+              </Typography>
+            </Stack>
+            <Stack spacing={3} justifyContent="flex-end" alignItems="flex-end">
+              <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
+                Add ride
+              </Button>
+            </Stack>
           </Stack>
-
-          <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
-            Add ride
-          </Button>
         </Stack>
       </form>
       <DevTool control={control} />
