@@ -3,10 +3,9 @@ import PageWrapper from '@layouts/PageWrapper';
 import Banner from '@layouts/Banner';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import Form from '@components/form/Form';
 import AddRideForm from '@components/form/AddRideForm';
-import { addRideFormSchema } from '@components/form/schema/schema';
+import { addRideFormSchema } from '@app/features/authentication/schema/schema';
 import { addRideFormDefaultValues } from '@data/constants';
 
 const AddRide = () => {
@@ -29,12 +28,10 @@ const AddRide = () => {
         </>
       )}
       {userLoggedIn && (
-        <Paper sx={{ p: 2, width: '100%' }}>
-          <Stack direction="column" alignItems="center" spacing={6}>
-            <Banner subtitle="Add a ride and find perfect passengers..." />
-            <Form formType={<AddRideForm />} formSchema={addRideFormSchema} defaultValues={addRideFormDefaultValues} />
-          </Stack>
-        </Paper>
+        <Stack direction="column" alignItems="center" spacing={6}>
+          <Banner subtitle="Add a ride and find perfect passengers..." />
+          <Form formType={<AddRideForm />} formSchema={addRideFormSchema} defaultValues={addRideFormDefaultValues} />
+        </Stack>
       )}
     </PageWrapper>
   );

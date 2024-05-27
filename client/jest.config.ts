@@ -12,6 +12,7 @@ export default {
     "@pages(.*)$": "<rootDir>/pages$1",
     "@components(.*)$": "<rootDir>/components$1",
     "@layouts(.*)$": "<rootDir>/layouts$1",
+    "@features(.*)$": "<rootDir>/features$1",
     "@data(.*)$": "<rootDir>/data$1",
     "@store(.*)$": "<rootDir>/store$1",
   },

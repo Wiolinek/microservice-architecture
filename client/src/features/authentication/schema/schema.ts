@@ -74,8 +74,9 @@ export const addRideFormSchema = z.object({
   carMake: z.string().min(2, { message: 'Car make should have at least 2 characters' }),
   carImage: z
     .any()
-    .refine((file) => file?.size <= MAX_FILE_SIZE, 'Max image size is 5MB.')
-    .refine((file) => ACCEPTED_IMAGE_TYPES.includes(file?.type), 'Only .jpg, .jpeg, .png and .webp formats are supported.'),
+    .refine((files) => files?.length == 1, 'Image is required.')
+    .refine((files) => files?.[0]?.size <= MAX_FILE_SIZE, 'Max file size is 5MB.')
+    .refine((files) => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type), '.jpg, .jpeg, .png and .webp files are accepted.'),
   start: z.string().min(2, { message: 'Start should have at least 2 characters' }),
   startDate: z.string().date(),
   startTime: z.string().time(),

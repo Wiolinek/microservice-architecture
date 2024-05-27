@@ -72,7 +72,7 @@ const RegisterForm = () => {
                 <FormControlLabel control={<Checkbox {...register('isPassenger')} size="medium" />} label="passenger" />
                 {!watchDriverRole && <FormHelperText error>{!watchDriverRole && errors.isPassenger?.message}</FormHelperText>}
               </FormGroup>
-              {watchDriverRole ? (
+              {watchDriverRole && (
                 <>
                   <TextField
                     label="Car make"
@@ -80,7 +80,7 @@ const RegisterForm = () => {
                     error={!!errors.carMake}
                     helperText={errors.carMake?.message as string}
                   />
-                  {watchCarImage?.length > 0 ? (
+                  {watchCarImage?.length > 0 && (
                     <ImageList variant="quilted" cols={1} sx={{ height: '140px', width: 'fit-content' }}>
                       <ImageListItem sx={{ overflow: 'hidden' }}>
                         <img
@@ -92,7 +92,7 @@ const RegisterForm = () => {
                         />
                       </ImageListItem>
                     </ImageList>
-                  ) : null}
+                  )}
 
                   <Button
                     component="label"
@@ -112,7 +112,7 @@ const RegisterForm = () => {
                     />
                   </Button>
                 </>
-              ) : null}
+              )}
             </Stack>
 
             <Stack spacing={3} alignItems="flex-end">
