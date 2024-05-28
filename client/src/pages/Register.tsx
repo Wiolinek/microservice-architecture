@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Form from '@components/form/Form';
 import RegisterForm from '@features/authentication/components/RegisterForm';
 import Banner from '@layouts/Banner';
-import { registerFormSchema } from '@features/authentication/schema/schema';
+import { registerFormSchema } from '@features/authentication/schema/registerFormSchema';
 import { registerDefaultValues } from '@data/constants';
 
 export const registerTitle = 'Create new account';

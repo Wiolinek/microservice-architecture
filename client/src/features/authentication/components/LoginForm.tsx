@@ -2,11 +2,11 @@ import { useFormContext } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { LoginFormSchema } from '@features/authentication/schema/schema';
+import { LoginFormSchema } from '@features/authentication/schema/loginFormSchema';
 import { DevTool } from '@hookform/devtools';
 import { useDispatch } from 'react-redux';
 // import { logInStart, logInFailure, logInSuccess } from '@app/store/userSlice';
-import { logInStart } from '@store/userSlice';
+import { logInStart } from '@store/authSlice';
 
 const LoginForm = () => {
   const {

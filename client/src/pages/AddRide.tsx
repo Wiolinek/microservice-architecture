@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Form from '@components/form/Form';
 import AddRideForm from '@components/form/AddRideForm';
-import { addRideFormSchema } from '@app/features/authentication/schema/schema';
+import { addRideFormSchema } from '@features/authentication/schema/addRideFormSchema';
 import { addRideFormDefaultValues } from '@data/constants';
 
 const AddRide = () => {

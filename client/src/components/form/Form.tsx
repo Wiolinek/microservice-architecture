@@ -1,6 +1,8 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import Paper from '@mui/material/Paper';
-import { LoginFormSchema, RegisterFormSchema, AddRideFormSchema } from '@features/authentication/schema/schema';
+import { LoginFormSchema } from '@features/authentication/schema/loginFormSchema';
+import { RegisterFormSchema } from '@features/authentication/schema/registerFormSchema';
+import { AddRideFormSchema } from '@features/authentication/schema/addRideFormSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProps } from '@components/form/interfaces';
 

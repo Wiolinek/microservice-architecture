@@ -6,6 +6,10 @@ import { store, persistor } from './store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 // import { ApiProvider } from '@reduxjs/toolkit/query/react';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { enUS } from '@mui/x-date-pickers/locales';
+import 'dayjs/locale/en-gb';
 import './App.css';
 
 const router = createBrowserRouter(routes);
@@ -55,15 +59,20 @@ const theme = createTheme({
 
 const App = () => {
   return (
-    <Provider store={store}>
-      {/* <ApiProvider api={ridesApi}> */}
-      <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider theme={theme}>
-          <RouterProvider router={router} />
-        </ThemeProvider>
-      </PersistGate>
-      {/* </ApiProvider> */}
-    </Provider>
+    <LocalizationProvider
+      adapterLocale="en-gb"
+      dateAdapter={AdapterDayjs}
+      localeText={enUS.components.MuiLocalizationProvider.defaultProps.localeText}>
+      <Provider store={store}>
+        {/* <ApiProvider api={ridesApi}> */}
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider theme={theme}>
+            <RouterProvider router={router} />
+          </ThemeProvider>
+        </PersistGate>
+        {/* </ApiProvider> */}
+      </Provider>
+    </LocalizationProvider>
   );
 };
 

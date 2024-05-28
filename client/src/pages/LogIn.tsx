@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Form from '@components/form/Form';
 import LoginForm from '@features/authentication/components/LoginForm';
 import Banner from '@layouts/Banner';
-import { loginFormSchema } from '@features/authentication/schema/schema';
+import { loginFormSchema } from '@features/authentication/schema/loginFormSchema';
 import { loginDefaultValues } from '@data/constants';
 
 const LogIn = () => {
