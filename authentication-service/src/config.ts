@@ -20,6 +20,8 @@ interface Config {
   JWT_TOKEN: string | undefined;
   GATEWAY_JWT_TOKEN: string | undefined;
   NODE_ENV: string | undefined;
+  API_GATEWAY_URL: string | undefined;
+  MYSQL_DB: string | undefined;
   SECRET_KEY_ONE: string | undefined;
   SECRET_KEY_TWO: string | undefined;
   CLIENT_URL: string | undefined;
@@ -36,6 +38,8 @@ const config: Config = {
   JWT_TOKEN: process.env.JWT_TOKEN || '1234',
   GATEWAY_JWT_TOKEN: process.env.GATEWAY_JWT_TOKEN || '1234',
   NODE_ENV: process.env.NODE_ENV || '',
+  API_GATEWAY_URL: process.env.API_GATEWAY_URL || '',
+  MYSQL_DB: process.env.MYSQL_DB || '',
   SECRET_KEY_ONE: process.env.SECRET_KEY_ONE || '',
   SECRET_KEY_TWO: process.env.SECRET_KEY_TWO || '',
   CLIENT_URL: process.env.CLIENT_URL || '',
