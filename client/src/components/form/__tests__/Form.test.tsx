@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import Form from '@components/form/Form';
-import LoginForm from '@components/form/LoginForm';
-import { loginFormSchema } from '@components/form/schema/schema';
+import LoginForm from '@features/authentication/components/LoginForm';
+import { loginFormSchema } from '@features/authentication/schema/loginFormSchema';
 import { loginDefaultValues } from '@data/constants';
 
 describe('Form', () => {
