@@ -23,7 +23,8 @@
     "skipLibCheck": true,
     "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
     "paths": {
-      "@authentication-service/*": ["src/*"]
+      "@authentication-service/*": ["src/*"],
+      "@data/*": ["src/data/*"]
     }
   }
 }
