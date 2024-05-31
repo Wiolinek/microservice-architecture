@@ -21,10 +21,10 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: trains_pass
-      MYSQL_DATABASE: trains_auth
-      MYSQL_USER: trains
-      MYSQL_PASSWORD: trains_pass
+      MYSQL_ROOT_PASSWORD: rides_pass
+      MYSQL_DATABASE: rides_auth
+      MYSQL_USER: rides
+      MYSQL_PASSWORD: rides_pass
     ports:
       - "3308:3306"
     volumes:
@@ -34,9 +34,9 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      POSTGRES_DB: trains_auth
-      POSTGRES_USER: trains
-      POSTGRES_PASSWORD: trains_pass
+      POSTGRES_DB: rides_auth
+      POSTGRES_USER: rides
+      POSTGRES_PASSWORD: rides_pass
     ports:
       - "5430:5430"
     volumes:

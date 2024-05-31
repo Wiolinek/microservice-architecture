@@ -14,7 +14,7 @@
     "@elastic/elasticsearch": "^8.13.1",
     "@types/node": "^20.12.12",
     "amqplib": "^0.10.4",
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^5.1.1",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "cookie-session": "^2.1.0",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@jest/types": "^29.6.3",
     "@types/amqplib": "^0.10.5",
-    "@types/bcryptjs": "^2.4.6",
+    "@types/bcrypt": "^5.0.2",
     "@types/compression": "^1.7.5",
     "@types/cookie-parser": "^1.4.7",
     "@types/cookie-session": "^2.0.49",

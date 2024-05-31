@@ -2,7 +2,7 @@
 import config from './config';
 import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize(config.MYSQL_DB!, {
+export const sequelize = new Sequelize(config.MYSQL_DB!, {
   dialect: 'mysql',
   logging: false,
   dialectOptions: { multipleStatements: true },

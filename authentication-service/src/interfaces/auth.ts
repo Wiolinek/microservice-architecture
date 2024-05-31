@@ -26,3 +26,22 @@ export interface Error {
   status: string;
   comingFrom: string;
 }
+
+export interface AuthDocument {
+  id?: number;
+  profilePublicId?: string;
+  email: string;
+  name: string;
+  phone: string;
+  password: string;
+  isDriver: boolean;
+  isPassenger: boolean;
+  carMake?: string;
+  carImage?: string;
+  otp?: string;
+  otpExpiration?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
+  comparePassword(password: string, hashedPassword: string): Promise<boolean>;
+  hashPassword(password: string): Promise<string>;
+}
