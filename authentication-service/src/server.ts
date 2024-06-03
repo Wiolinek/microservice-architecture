@@ -12,11 +12,15 @@ import config from './config';
 import { verify } from 'jsonwebtoken';
 // import checkConnection from './elasticsearch';
 import { AuthPayload } from './interfaces/auth';
-// import { dbConnect } from './database';
+import { dbConnect } from './database';
+import { Channel } from 'amqplib';
+import { createConnection } from './queues/connection';
 
 const app = express();
 
-// const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'apiGatewayServer', 'debug');
+// const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'authenticationServer', 'debug');
+
+export let authenticationChannel: Channel;
 
 app.use(
   winston.logger({
@@ -61,10 +65,15 @@ app.use(express.urlencoded({ extended: false, limit: '200mb' }));
 // elastic
 // checkConnection();
 
+// rabbit
+const startQueuse = async () => {
+  authenticationChannel = (await createConnection()) as Channel;
+};
+startQueuse();
 
 // db
 
-// dbConnect();
+dbConnect();
 
 // // error handler
 

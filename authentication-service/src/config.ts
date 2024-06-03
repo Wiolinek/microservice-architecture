@@ -32,6 +32,7 @@ interface Config {
   BOOKING_BASE_URL: string | undefined;
   REDIS_HOST: string | undefined;
   ELASTIC_SEARCH_URL: string | undefined;
+  RABBITMQ_ENDPOINT: string | undefined;
 }
 
 const config: Config = {
@@ -50,6 +51,7 @@ const config: Config = {
   BOOKING_BASE_URL: process.env.BOOKING_BASE_URL || '',
   REDIS_HOST: process.env.REDIS_HOST || '',
   ELASTIC_SEARCH_URL: process.env.ELASTIC_SEARCH_URL || '',
+  RABBITMQ_ENDPOINT: process.env.RABBITMQ_ENDPOINT || '',
 };
 
 export default config;
