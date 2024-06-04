@@ -1,39 +1,25 @@
 require('dotenv').config();
 import express from 'express';
 // import { StatusCodes } from 'http-status-codes';
-// import { Logger } from 'winston';
-import winston from 'express-winston';
-import { format, transports } from 'winston';
+import { Logger } from 'winston';
+import { winstonLogger } from '@authentication-service/logger';
 import compression from 'compression';
 import cors from 'cors';
 import hpp from 'hpp';
 import helmet from 'helmet';
-import config from './config';
+import config from '@authentication-service/config';
 import { verify } from 'jsonwebtoken';
 // import checkConnection from './elasticsearch';
-import { AuthPayload } from './interfaces/auth';
-import { dbConnect } from './database';
+import { AuthPayload } from '@authentication-service/interfaces/auth';
+import { dbConnect } from '@authentication-service/database';
 import { Channel } from 'amqplib';
-import { createConnection } from './queues/connection';
+import { createConnection } from '@authentication-service/queues/connection';
 
 const app = express();
 
-// const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'authenticationServer', 'debug');
+const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'authenticationServer', 'debug');
 
 export let authenticationChannel: Channel;
-
-app.use(
-  winston.logger({
-    transports: [
-      //where I want to save logs
-      new transports.Console(),
-      new transports.File({ level: 'warn', filename: './logs/warnLogs.log' }),
-      new transports.File({ level: 'error', filename: './logs/errorLogs.log' }),
-    ],
-    format: format.combine(format.json(), format.timestamp(), format.colorize(), format.simple(), format.prettyPrint()),
-    statusLevels: true,
-  })
-);
 
 app.set('trust proxy', 1);
 app.use(hpp());

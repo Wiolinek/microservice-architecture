@@ -1,19 +1,19 @@
 import config from '@authentication-service/config';
-// import { winstonLogger } from '@shared';
+import { Logger } from 'winston';
+import { winstonLogger } from '@authentication-service/logger';
 import client, { Channel, Connection } from 'amqplib';
-// import { Logger } from 'winston';
 
-// const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'authenticationQueueConnection', 'debug');
+const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'authenticationQueueConnection', 'debug');
 
 async function createConnection(): Promise<Channel | undefined> {
   try {
     const connection: Connection = await client.connect(`${config.RABBITMQ_ENDPOINT}`);
     const channel: Channel = await connection.createChannel();
-    // log.info('Notification server connected to queue successfully...');
+    log.info('Notification server connected to queue successfully...');
     closeConnection(channel, connection);
     return channel;
   } catch (error) {
-    // log.log('error', 'NotificationService error createConnection() method:', error);
+    log.log('error', 'NotificationService error createConnection() method:', error);
     return undefined;
   }
 }
@@ -25,4 +25,4 @@ function closeConnection(channel: Channel, connection: Connection): void {
   });
 }
 
-export { createConnection } ;
+export { createConnection };
