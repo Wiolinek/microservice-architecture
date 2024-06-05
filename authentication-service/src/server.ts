@@ -1,23 +1,23 @@
 require('dotenv').config();
 import express from 'express';
 // import { StatusCodes } from 'http-status-codes';
-import { Logger } from 'winston';
-import { winstonLogger } from '@authentication-service/logger';
+// import { Logger } from 'winston';
+// import { winstonLogger } from '@authentication-service/logger';
 import compression from 'compression';
 import cors from 'cors';
 import hpp from 'hpp';
 import helmet from 'helmet';
 import config from '@authentication-service/config';
 import { verify } from 'jsonwebtoken';
-// import checkConnection from './elasticsearch';
-import { AuthPayload } from '@authentication-service/interfaces/auth';
+// import checkConnection from '@authentication-service/elasticsearch';
+import { AuthPayload } from '@interfaces/auth';
 import { dbConnect } from '@authentication-service/database';
 import { Channel } from 'amqplib';
-import { createConnection } from '@authentication-service/queues/connection';
+import { createConnection } from '@queues/connection';
 
 const app = express();
 
-const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'authenticationServer', 'debug');
+// const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'authenticationServer', 'debug');
 
 export let authenticationChannel: Channel;
 

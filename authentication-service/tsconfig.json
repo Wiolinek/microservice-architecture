@@ -24,7 +24,13 @@
     "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
     "paths": {
       "@authentication-service/*": ["src/*"],
-      "@data/*": ["src/data/*"]
+      "@data/*": ["src/data/*"],
+      "@handlers/*": ["src/handlers/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@models/*": ["src/models/*"],
+      "@queues/*": ["src/queues/*"],
+      "@routes/*": ["src/routes/*"],
+      "@schema/*": ["src/schema/*"]
     }
   }
 }

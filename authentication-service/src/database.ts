@@ -1,5 +1,5 @@
 // import { Logger } from 'winston';
-import config from './config';
+import config from '@authentication-service/config';
 import { Sequelize } from 'sequelize';
 
 export const sequelize = new Sequelize(config.MYSQL_DB!, {

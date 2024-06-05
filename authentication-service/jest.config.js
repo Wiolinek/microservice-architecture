@@ -22,8 +22,14 @@ const config = {
   },
   coverageReporters: ['text-summary', 'lcov'],
   moduleNameMapper: {
-    '@authentication-service/(.*)': ['<rootDir>/src/$1'],
+    '@authentication-service/(.*)$': ['<rootDir>/src/$1'],
     '@data(.*)$': '<rootDir>/data$1',
+    '@handlers(.*)$': '<rootDir>/handlers$1',
+    '@interfaces(.*)$': '<rootDir>/interfaces$1',
+    '@models(.*)$': '<rootDir>/models$1',
+    '@queues(.*)$': '<rootDir>/queues$1',
+    '@routes(.*)$': '<rootDir>/routes$1',
+    '@schema(.*)$': '<rootDir>/schema$1',
   },
 };
 exports.default = config;
