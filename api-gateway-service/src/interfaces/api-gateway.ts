@@ -1,17 +1,3 @@
-declare global {
-  namespace Express {
-    interface Request {
-      currentUser?: AuthPayload;
-    }
-  }
-}
-
-export interface AuthPayload {
-  id: number;
-  username: string;
-  email: string;
-}
-
 export interface ErrorResponse {
   message: string;
   statusCode: number;
@@ -27,15 +13,18 @@ export interface Error {
   comingFrom: string;
 }
 
-export interface AuthDocument {
-  id?: number;
-  profilePublicId?: string;
+export interface Login {
+  email: string;
+  password: string;
+}
+
+export interface Register {
   email: string;
   name: string;
   phone: string;
   password: string;
-  isDriver: boolean;
-  isPassenger: boolean;
+  isDriver?: boolean;
+  isPassenger?: boolean;
   carMake?: string;
   carImage?: string;
   otp?: string;
@@ -44,11 +33,4 @@ export interface AuthDocument {
   updatedAt?: Date;
   comparePassword(password: string, hashedPassword: string): Promise<boolean>;
   hashPassword(password: string): Promise<string>;
-}
-
-export interface AuthUserMessageDetails {
-  name?: string;
-  email?: string;
-  createdAt?: Date;
-  type?: string;
 }

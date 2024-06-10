@@ -1,5 +1,5 @@
 require('dotenv').config();
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 // import { StatusCodes } from 'http-status-codes';
 // import { Logger } from 'winston';
 // import { winstonLogger } from '@authentication-service/logger';
@@ -33,7 +33,7 @@ app.use(
   })
 );
 
-app.use((req: express.Request, _res: express.Response, next: express.NextFunction) => {
+app.use((req:Request, _res: Response, next: NextFunction) => {
   if (req.headers.authorization) {
     const token = req.headers.authorization.split(' ')[1];
     const payload: AuthPayload = verify(token, config.JWT_TOKEN!) as AuthPayload;

@@ -23,7 +23,10 @@
     "skipLibCheck": true,
     "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
     "paths": {
-      "@api-gateway-service/*": ["src/*"]
+      "@api-gateway-service/*": ["src/*"],
+      "@services/*": ["services/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@routes/*": ["src/routes/*"]
     }
   }
 }

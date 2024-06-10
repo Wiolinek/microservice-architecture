@@ -18,7 +18,7 @@ if (process.env.ENABLE_APM === '1') {
 
 interface Config {
   JWT_TOKEN: string | undefined;
-  GATEWAY_JWT_TOKEN: string | undefined;
+  API_GATEWAY_JWT_TOKEN: string | undefined;
   NODE_ENV: string | undefined;
   API_GATEWAY_URL: string | undefined;
   MYSQL_DB: string | undefined;
@@ -37,7 +37,7 @@ interface Config {
 
 const config: Config = {
   JWT_TOKEN: process.env.JWT_TOKEN || '1234',
-  GATEWAY_JWT_TOKEN: process.env.GATEWAY_JWT_TOKEN || '1234',
+  API_GATEWAY_JWT_TOKEN: process.env.API_GATEWAY_JWT_TOKEN || '1234',
   NODE_ENV: process.env.NODE_ENV || '',
   API_GATEWAY_URL: process.env.API_GATEWAY_URL || '',
   MYSQL_DB: process.env.MYSQL_DB || '',

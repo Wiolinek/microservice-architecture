@@ -1,5 +1,5 @@
 import Joi, { ObjectSchema } from 'joi';
-import { EMAIL_REGEX, PHONE_NUMBER_REGEX, MAX_FILE_SIZE, ACCEPTED_IMAGE_TYPES } from '@data/constants';
+import { EMAIL_REGEX, PHONE_NUMBER_REGEX/*, MAX_FILE_SIZE, ACCEPTED_IMAGE_TYPES*/ } from '@data/constants';
 
 const registerFormSchema: ObjectSchema = Joi.object().keys({
   email: Joi.string().required().pattern(EMAIL_REGEX).messages({

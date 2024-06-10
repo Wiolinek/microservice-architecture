@@ -24,6 +24,7 @@
     "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
     "paths": {
       "@authentication-service/*": ["src/*"],
+      "@controllers/*": ["src/controllers/*"],
       "@data/*": ["src/data/*"],
       "@handlers/*": ["src/handlers/*"],
       "@interfaces/*": ["src/interfaces/*"],
