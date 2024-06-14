@@ -17,3 +17,13 @@ export const loginFunction = async (body: Login) => {
   const response: AxiosResponse = await axiosFunction.post('/login', body);
   return response;
 };
+
+export const getRides = async () => {
+  const response: AxiosResponse = await axiosFunction.get('/');
+  return response;
+};
+
+export const getSingleRide = async (rideId: string) => {
+  const response: AxiosResponse = await axiosFunction.get(`/rides/${rideId}`);
+  return response;
+};
