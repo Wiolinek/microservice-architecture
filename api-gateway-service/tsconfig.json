@@ -25,6 +25,7 @@
     "paths": {
       "@api-gateway-service/*": ["src/*"],
       "@services/*": ["services/*"],
+      "@controllers/*": ["controllers/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@routes/*": ["src/routes/*"]
     }

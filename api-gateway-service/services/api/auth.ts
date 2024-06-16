@@ -5,7 +5,7 @@ import { Login, Register } from '@interfaces/api-gateway';
 
 export let axiosAuthInstance: ReturnType<typeof axios.create>;
 
-const axiosFunction = axiosService(`${config.AUTH_BASE_URL}/api/v1/auth`, 'auth');
+export const axiosFunction = axiosService(`${config.AUTH_BASE_URL}/api/v1/auth`, 'auth');
 axiosAuthInstance = axiosFunction;
 
 export const registerFunction = async (body: Register) => {

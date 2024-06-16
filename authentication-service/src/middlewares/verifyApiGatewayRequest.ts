@@ -13,7 +13,7 @@ export function verifyApiGatewayRequest(req: Request, _res: Response, next: Next
   }
 
   try {
-    const payload: { id: string; iat: number } = JWT.verify(token, '1282722b942e08c8a6cb033aa6ce850e') as { id: string; iat: number };
+    const payload: { id: string; iat: number } = JWT.verify(token, `${process.env.API_GATEWAY_JWT_TOKEN}`) as { id: string; iat: number };
     if (!tokens.includes(payload.id)) {
       throw new Error('verifyApiGatewayRequest() method: Request payload is invalid');
     }
