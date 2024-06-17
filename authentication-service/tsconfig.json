@@ -26,7 +26,7 @@
       "@authentication-service/*": ["src/*"],
       "@controllers/*": ["src/controllers/*"],
       "@data/*": ["src/data/*"],
-      "@handlers/*": ["src/handlers/*"],
+      "@services/*": ["src/services/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@models/*": ["src/models/*"],
       "@queues/*": ["src/queues/*"],

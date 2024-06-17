@@ -14,6 +14,7 @@ import { AuthPayload } from '@interfaces/auth';
 import { dbConnect } from '@authentication-service/database';
 import { Channel } from 'amqplib';
 import { createConnection } from '@queues/connection';
+import { appRoutes } from '@authentication-service/routes';
 
 const app = express();
 
@@ -47,15 +48,16 @@ app.use(express.json({ limit: '200mb' }));
 app.use(express.urlencoded({ extended: false, limit: '200mb' }));
 
 //routy
+appRoutes(app);
 
 // elastic
 // checkConnection();
 
 // rabbit
-const startQueuse = async () => {
+const startQueue = async () => {
   authenticationChannel = (await createConnection()) as Channel;
 };
-startQueuse();
+startQueue();
 
 // db
 
