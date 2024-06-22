@@ -1,5 +1,6 @@
 require('dotenv').config();
-import express, { Request, Response, NextFunction } from 'express';
+// import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 // import { StatusCodes } from 'http-status-codes';
 // import { Logger } from 'winston';
 // import { winstonLogger } from '@api-gateway-service/logger';
@@ -9,8 +10,8 @@ import cors from 'cors';
 import hpp from 'hpp';
 import helmet from 'helmet';
 import config from './config';
-import { axiosAuthInstance } from '@services/api/auth';
-// import { ErrorResponse } from '@api-gateway-service/interfaces/api-gateway';
+// import { axiosAuthInstance } from '@services/api/auth';
+// import { ErrorResponse } from '@interfaces/api-gateway';
 // import checkConnection from './elasticsearch';
 
 const app = express();
@@ -43,12 +44,12 @@ app.use(
 );
 
 // add bearer token to header before api service send request to service
-app.use((req: Request, _res: Response, next: NextFunction) => {
-  if (req.session?.jwt) {
-    axiosAuthInstance.defaults.headers['Authorization'] = `Bearer ${req.session?.jwt}`;
-  }
-  next();
-});
+// app.use((req: Request, _res: Response, next: NextFunction) => {
+//   if (req.session?.jwt) {
+//     axiosAuthInstance.defaults.headers['Authorization'] = `Bearer ${req.session?.jwt}`;
+//   }
+//   next();
+// });
 
 app.use(compression());
 app.use(express.json({ limit: '200mb' }));
