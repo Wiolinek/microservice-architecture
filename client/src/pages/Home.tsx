@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import PageWrapper from '@layouts/PageWrapper';
 import FiltersDrawer from '@components/FiltersDrawer';
-import RidesList from '@components/RidesList';
+import RidesList from '@features/rides/components/RidesList';
 import Banner from '@layouts/Banner';
 
 export const homeTitle = 'Find your perfect ride';

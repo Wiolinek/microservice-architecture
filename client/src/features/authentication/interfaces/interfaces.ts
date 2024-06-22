@@ -9,13 +9,24 @@ export interface RegisterFormValues {
   phone: string;
   password: string;
   repeatPassword: string;
-  isDriver: boolean;
-  isPassenger: boolean;
+  isDriver: string;
+  isPassenger: string;
   carMake?: string;
   carImage?: string;
 }
 
-export interface AuthUser {}
+export interface AuthUser {
+  profilePublicId: string | null;
+  createdAt: Date | null;
+  email: string | null;
+  id: number | null;
+  passwordResetExpires: Date | null;
+  passwordResetToken: null | null;
+  carMake: string | null;
+  carImage: string | null;
+  updatedAt: Date | null;
+  name: string | null;
+}
 
 export interface ReduxAddAuthUser {}
 
@@ -62,4 +73,33 @@ export interface AddRidePayload {
 export interface BookRidePayload {
   rideId: string;
   userId: string;
+}
+
+export interface ReduxLogout {
+  type: string;
+  payload: boolean;
+}
+
+export interface ReduxAddAuthUser {
+  type: string;
+  payload: ReduxAuthPayload;
+}
+
+export interface ReduxAuthPayload {
+  authInfo?: AuthDocument;
+}
+
+export interface AuthDocument {
+  id?: number;
+  profilePublicId?: string;
+  email: string;
+  name: string;
+  phone: string;
+  password: string;
+  isDriver: boolean;
+  isPassenger: boolean;
+  carMake?: string;
+  carImage?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
