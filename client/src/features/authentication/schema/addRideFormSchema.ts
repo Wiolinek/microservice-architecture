@@ -20,6 +20,11 @@ export const addRideFormSchema = z
       .refine((files) => ACCEPTED_IMAGE_TYPES.includes(files?.[0]?.type), '.jpg, .jpeg, .png and .webp files are accepted.'),
     start: z.string().min(2, { message: 'Start must have at least 2 characters' }),
     destination: z.string().min(2, { message: 'Destination must have at least 2 characters' }),
+    totalSeats: z.coerce
+      .number()
+      .int()
+      .min(1, { message: 'Number of total seats is required' })
+      .gt(0, { message: 'Number of total seats must be greaten than 0' }),
     freeSeats: z.coerce
       .number()
       .int()
@@ -35,6 +40,15 @@ export const addRideFormSchema = z
         code: 'custom',
         message: 'End date cannot be earlier than start date.',
         path: ['endDate'],
+      });
+    }
+  })
+  .superRefine(({ totalSeats, freeSeats }, ctx) => {
+    if (totalSeats >= freeSeats) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'Number of total seats has to be greater or equal the number of free seats',
+        path: ['freeSeats'],
       });
     }
   });
