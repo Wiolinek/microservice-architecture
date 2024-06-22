@@ -27,7 +27,7 @@ export const requiredRegisterFormSchema = z
 
 export const optionalRegisterFormSchema = z.discriminatedUnion('isDriver', [
   z.object({
-    isDriver: z.literal(true),
+    isDriver: z.literal<boolean>(true),
     carMake: z.string().min(2, { message: 'Car make must have at least 2 characters' }),
     carImage: z
       .any()
@@ -37,10 +37,10 @@ export const optionalRegisterFormSchema = z.discriminatedUnion('isDriver', [
     isPassenger: z.boolean(),
   }),
   z.object({
-    isDriver: z.literal(false),
+    isDriver: z.literal<boolean>(false),
     carMake: z.any(),
     carImage: z.any(),
-    isPassenger: z.literal(true, {
+    isPassenger: z.literal<boolean>(true, {
       errorMap: () => ({ message: 'At least one option needs to be checked' }),
     }),
   }),
