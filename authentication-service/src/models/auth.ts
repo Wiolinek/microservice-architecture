@@ -27,8 +27,8 @@ const AuthModel: ModelDefined<AuthDocument, AuthUserRegistrationAttributes> & Au
       type: DataTypes.STRING,
       allowNull: false,
     },
-    isDriver: { type: DataTypes.BOOLEAN, allowNull: true },
-    isPassenger: { type: DataTypes.BOOLEAN, allowNull: true },
+    isDriver: { type: DataTypes.BOOLEAN },
+    isPassenger: { type: DataTypes.BOOLEAN },
     carMake: { type: DataTypes.STRING, allowNull: true },
     carImage: { type: DataTypes.STRING, allowNull: true },
     profilePublicId: {
