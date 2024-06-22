@@ -23,8 +23,8 @@ export interface Register {
   name: string;
   phone: string;
   password: string;
-  isDriver?: boolean;
-  isPassenger?: boolean;
+  isDriver: boolean;
+  isPassenger: boolean;
   carMake?: string;
   carImage?: string;
   otp?: string;

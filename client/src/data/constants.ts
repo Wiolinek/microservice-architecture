@@ -1,6 +1,5 @@
 import { AddRideFormValues } from '@components/form/interfaces';
 import { LoginFormValues, RegisterFormValues } from '@features/authentication/interfaces/interfaces';
-import dayjs from 'dayjs';
 
 export const navigationLogoText = 'Share Your Ride';
 
@@ -35,10 +34,10 @@ export const addRideFormDefaultValues: AddRideFormValues = {
   carMake: '',
   carImage: '',
   start: '',
-  startDate: dayjs(),
+  startDate: new Date(),
   destination: '',
-  endDate: dayjs(),
-  totalSeats: 0,
+  endDate: new Date(),
+  totalSeats: '',
   freeSeats: '',
   price: '',
 };

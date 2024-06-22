@@ -1,16 +1,15 @@
 import { LoginFormValues, RegisterFormValues } from '@features/authentication/interfaces/interfaces';
 import { z } from 'zod';
-import { Dayjs } from 'dayjs';
 
 export interface AddRideFormValues {
   email: string;
   name: string;
   phone: string;
   start: string;
-  startDate: Dayjs;
+  startDate: Date;
   destination: string;
-  endDate: Dayjs;
-  totalSeats: number;
+  endDate: Date;
+  totalSeats: string;
   freeSeats: string;
   price: string;
   carMake: string;
