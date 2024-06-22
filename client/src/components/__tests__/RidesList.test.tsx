@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import RidesList from '@components/RidesList';
+import RidesList from '@features/rides/components/RidesList';
 
 describe('Rides list', () => {
   test('renders correctly', () => {

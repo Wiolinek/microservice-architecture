@@ -11,6 +11,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AddRideFormSchema } from '@features/authentication/schema/addRideFormSchema';
 import { VisuallyHiddenInputStyle } from '@features/authentication/components/styles/customStyles';
+import { useAddRideMutation } from '@features/rides/services/ridesSlice';
 import { DevTool } from '@hookform/devtools';
 import dayjs from 'dayjs';
 
@@ -24,9 +25,10 @@ const AddRideForm = () => {
     formState: { isDirty, isSubmitting, errors },
   } = useFormContext<AddRideFormSchema>();
   const watchCarImage = watch('carImage');
+  const [addRide] = useAddRideMutation();
 
   const onSubmit = (data: AddRideFormSchema) => {
-    console.log(data);
+    addRide(data);
   };
 
   return (
@@ -45,6 +47,14 @@ const AddRideForm = () => {
           <Divider sx={{ backgroundColor: 'primary.main', height: 1 }} />
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={3}>
             <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }}>
+              <TextField
+                {...register('totalSeats')}
+                label="Total seats"
+                type="number"
+                inputProps={{ min: 1, max: 10 }}
+                error={!!errors.freeSeats}
+                helperText={errors.freeSeats?.message}
+              />
               <TextField
                 {...register('freeSeats')}
                 label="Available seats"
@@ -70,7 +80,7 @@ const AddRideForm = () => {
                 <ImageList variant="quilted" cols={1} sx={{ height: '140px', width: 'fit-content' }}>
                   <ImageListItem sx={{ overflow: 'hidden' }}>
                     <img
-                      src={URL.createObjectURL(getValues('carImage')[0])}
+                      src={URL.createObjectURL(watchCarImage[0])}
                       alt={getValues('carMake')}
                       title={getValues('carMake')}
                       loading="lazy"

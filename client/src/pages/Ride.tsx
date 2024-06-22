@@ -14,7 +14,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { typographyStyle } from '@components/RideCard';
-import { useGetRideQuery } from '@store/api';
+import { useGetRideQuery } from '@features/rides/services/ridesSlice';
 
 export interface Ride {
   id: string;

@@ -2,8 +2,8 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
-import userReducer from './userSlice';
-import { ridesApi } from './api';
+import userReducer from '@features/authentication/reducers/authSlice';
+import { ridesApi } from '@features/rides/services/ridesSlice';
 
 const persistConfig = {
   key: 'root',
