@@ -26,10 +26,7 @@ interface Config {
   SECRET_KEY_TWO: string | undefined;
   CLIENT_URL: string | undefined;
   AUTH_BASE_URL: string | undefined;
-  USERS_BASE_URL: string | undefined;
-  RIDE_BASE_URL: string | undefined;
-  MESSAGE_BASE_URL: string | undefined;
-  BOOKING_BASE_URL: string | undefined;
+  RIDES_BASE_URL: string | undefined;
   REDIS_HOST: string | undefined;
   ELASTIC_SEARCH_URL: string | undefined;
   RABBITMQ_ENDPOINT: string | undefined;
@@ -45,10 +42,7 @@ const config: Config = {
   SECRET_KEY_TWO: process.env.SECRET_KEY_TWO || '',
   CLIENT_URL: process.env.CLIENT_URL || '',
   AUTH_BASE_URL: process.env.AUTH_BASE_URL || '',
-  USERS_BASE_URL: process.env.USERS_BASE_URL || '',
-  RIDE_BASE_URL: process.env.RIDE_BASE_URL || '',
-  MESSAGE_BASE_URL: process.env.MESSAGE_BASE_URL || '',
-  BOOKING_BASE_URL: process.env.BOOKING_BASE_URL || '',
+  RIDES_BASE_URL: process.env.RIDE_BASE_URL || '',
   REDIS_HOST: process.env.REDIS_HOST || '',
   ELASTIC_SEARCH_URL: process.env.ELASTIC_SEARCH_URL || '',
   RABBITMQ_ENDPOINT: process.env.RABBITMQ_ENDPOINT || '',
