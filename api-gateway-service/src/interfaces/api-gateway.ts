@@ -34,3 +34,19 @@ export interface Register {
   comparePassword(password: string, hashedPassword: string): Promise<boolean>;
   hashPassword(password: string): Promise<string>;
 }
+
+export interface AddRide {
+  email: string;
+  name: string;
+  phone: string;
+  start: string;
+  startDate: Date;
+  destination: string;
+  endDate: Date;
+  totalSeats: string;
+  freeSeats: string;
+  price: string;
+  carMake: string;
+  carImage: string;
+  createdAt?: Date;
+}
