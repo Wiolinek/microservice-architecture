@@ -9,8 +9,8 @@ export interface RegisterFormValues {
   phone: string;
   password: string;
   repeatPassword: string;
-  isDriver: string;
-  isPassenger: string;
+  isDriver: boolean;
+  isPassenger: boolean;
   carMake?: string;
   carImage?: string;
 }
@@ -20,8 +20,6 @@ export interface AuthUser {
   createdAt: Date | null;
   email: string | null;
   id: number | null;
-  passwordResetExpires: Date | null;
-  passwordResetToken: null | null;
   carMake: string | null;
   carImage: string | null;
   updatedAt: Date | null;

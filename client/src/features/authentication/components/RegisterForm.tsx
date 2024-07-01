@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
+// import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -13,21 +14,27 @@ import FormGroup from '@mui/material/FormGroup';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { RegisterFormSchema } from '@features/authentication/schema/registerFormSchema';
 import { VisuallyHiddenInputStyle } from '@features/authentication/components/styles/customStyles';
+import { useRegisterBuilderMutation } from '@store/api';
 
 const RegisterForm = () => {
   const {
-    register,
-    unregister,
     getValues,
     handleSubmit,
+    register,
+    reset,
+    unregister,
     watch,
-    formState: { isDirty, isSubmitting, /*isSubmitted, isSubmitSuccessful, */ errors },
+    formState: { isDirty, isSubmitting, errors },
   } = useFormContext<RegisterFormSchema>();
   const watchDriverRole = watch('isDriver');
   const watchCarImage = watch('carImage');
+  // const dispatch = useDispatch();
+  const [registerBuilder, { isLoading }] = useRegisterBuilderMutation();
 
-  const onSubmit = (data: RegisterFormSchema) => {
-    console.log(data);
+  const onSubmit = async (data: RegisterFormSchema): Promise<void> => {
+    await registerBuilder(data);
+    // dispatch(isLoading);
+    reset();
   };
 
   useEffect(() => {
@@ -116,7 +123,7 @@ const RegisterForm = () => {
             </Stack>
 
             <Stack spacing={3} alignItems="flex-end">
-              <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
+              <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting || isLoading}>
                 Register
               </Button>
             </Stack>

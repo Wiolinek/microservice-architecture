@@ -1,27 +1,27 @@
 import { useFormContext } from 'react-hook-form';
+// import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { LoginFormSchema } from '@features/authentication/schema/loginFormSchema';
 import { DevTool } from '@hookform/devtools';
-import { useDispatch } from 'react-redux';
-// import { logInStart, logInFailure, logInSuccess } from '@app/store/userSlice';
-import { logInStart } from '@store/authSlice';
+import { useLoginBuilderMutation } from '@store/api';
 
 const LoginForm = () => {
   const {
     control,
-    register,
-    // reset,
-    // setValue,
     handleSubmit,
-    formState: { isDirty, isSubmitting, /*isSubmitted, isSubmitSuccessful, */ errors },
+    register,
+    reset,
+    formState: { isDirty, isSubmitting, errors },
   } = useFormContext<LoginFormSchema>();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const [loginBuilder, { isLoading }] = useLoginBuilderMutation();
 
-  const onSubmit = (data: LoginFormSchema) => {
-    console.log(data);
-    dispatch(logInStart());
+  const onSubmit = async (data: LoginFormSchema): Promise<void> => {
+    await loginBuilder(data);
+    // dispatch();
+    reset();
   };
 
   return (
@@ -43,7 +43,7 @@ const LoginForm = () => {
             helperText={errors.password?.message}
           />
           <Stack spacing={3} sx={{ width: { xs: 220, sm: 350 } }} alignItems="flex-end">
-            <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting}>
+            <Button type="submit" variant="contained" size="medium" disabled={!isDirty || isSubmitting || isLoading}>
               LogIn
             </Button>
           </Stack>
