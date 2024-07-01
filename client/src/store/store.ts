@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import userReducer from '@features/authentication/reducers/auth';
 import { ridesApi } from '@features/rides/services/ridesSlice';
+import { authenticationApi } from '@store/api';
 
 const persistConfig = {
   key: 'root',
@@ -18,8 +19,10 @@ export const store = configureStore({
   reducer: {
     user: persistedReducer,
     [ridesApi.reducerPath]: ridesApi.reducer,
+    [authenticationApi.reducerPath]: authenticationApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }).concat(ridesApi.middleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }).concat(ridesApi.middleware).concat(authenticationApi.middleware),
 });
 
 export const persistor = persistStore(store);

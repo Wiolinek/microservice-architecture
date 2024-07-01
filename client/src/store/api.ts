@@ -1,11 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {
-  LoginFormValues,
-  RegisterFormValues,
-  Response,
-  RegisterPayload,
-  LoginPayload,
-} from '@features/authentication/interfaces/interfaces';
+import { LoginFormValues, RegisterFormValues, Response } from '@features/authentication/interfaces/interfaces';
 
 const BASE_ENDPOINT = 'http://localhost:4000';
 
@@ -23,7 +17,7 @@ export const authenticationApi = createApi({
   reducerPath: 'authenticationApi',
   baseQuery,
   endpoints: (builder) => ({
-    register: builder.mutation<Response, RegisterPayload>({
+    registerBuilder: builder.mutation<Response, RegisterFormValues>({
       query: (body: RegisterFormValues) => {
         return {
           url: 'register',
@@ -33,7 +27,7 @@ export const authenticationApi = createApi({
       },
       // invalidatesTags: ['Auth']
     }),
-    login: builder.mutation<Response, LoginPayload>({
+    loginBuilder: builder.mutation<Response, LoginFormValues>({
       query: (body: LoginFormValues) => {
         return {
           url: 'login',
@@ -43,7 +37,7 @@ export const authenticationApi = createApi({
       },
       // invalidatesTags: ['Auth']
     }),
-    logout: builder.mutation<Response, void>({
+    logoutBuilder: builder.mutation<Response, void>({
       query() {
         return {
           url: 'logout',
@@ -56,4 +50,4 @@ export const authenticationApi = createApi({
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation, useLogoutMutation } = authenticationApi;
+export const { useRegisterBuilderMutation, useLoginBuilderMutation, useLogoutBuilderMutation } = authenticationApi;
