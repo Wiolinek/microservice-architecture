@@ -28,9 +28,10 @@ const registerFormSchema: ObjectSchema = Joi.object().keys({
     'string.required': 'Password is required',
     'any.only': '{{#label}} does not match',
   }),
-  isDriver: Joi.boolean().when('isPassenger', { is: false, then: Joi.required() }).messages({
-    'string.required': 'At least one option has to be checked',
-  }),
+  // isDriver: Joi.boolean().when('isPassenger', { is: false, then: Joi.required() }).messages({
+  //   'string.required': 'At least one option has to be checked',
+  // }),
+  isDriver: Joi.boolean(),
   isPassenger: Joi.boolean().when('isDriver', { is: false, then: Joi.required() }).messages({
     'string.required': 'At least one option has to be checked',
   }),
