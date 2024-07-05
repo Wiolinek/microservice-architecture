@@ -1,24 +1,11 @@
-export interface ErrorResponse {
-  message: string;
-  statusCode: number;
-  status: string;
-  comingFrom: string;
-  serializeErrors(): Error;
-}
-
-export interface Error {
-  message: string;
-  statusCode: number;
-  status: string;
-  comingFrom: string;
-}
-
-export interface Login {
+export interface LoginData {
   email: string;
   password: string;
 }
 
-export interface Register {
+export interface RegisterData {
+  id?: number;
+  profilePublicId?: string;
   email: string;
   name: string;
   phone: string;
@@ -27,8 +14,6 @@ export interface Register {
   isPassenger: boolean;
   carMake?: string;
   carImage?: string;
-  otp?: string;
-  otpExpiration?: Date;
   createdAt?: Date;
   updatedAt?: Date;
   comparePassword(password: string, hashedPassword: string): Promise<boolean>;
