@@ -1,6 +1,6 @@
 import { sequelize } from '@authentication-service/database';
 import { Optional, Model, ModelDefined, DataTypes } from 'sequelize';
-import { AuthDocument } from '@authentication-service/interfaces/auth';
+import { RegisterData } from '@authentication-service/interfaces/auth';
 import { hash, compare } from 'bcrypt';
 
 const SALT_ROUND = 10;
@@ -12,9 +12,9 @@ interface AuthModelMethods extends Model {
   };
 }
 
-type AuthUserRegistrationAttributes = Optional<AuthDocument, 'id' | 'createdAt' | 'updatedAt'>;
+type AuthUserRegistrationAttributes = Optional<RegisterData, 'id' | 'createdAt' | 'updatedAt'>;
 
-const AuthModel: ModelDefined<AuthDocument, AuthUserRegistrationAttributes> & AuthModelMethods = sequelize.define(
+const AuthModel: ModelDefined<RegisterData, AuthUserRegistrationAttributes> & AuthModelMethods = sequelize.define(
   'auths',
   {
     email: { type: DataTypes.STRING, allowNull: false },
@@ -46,7 +46,7 @@ const AuthModel: ModelDefined<AuthDocument, AuthUserRegistrationAttributes> & Au
       { unique: true, fields: ['email'] },
     ],
   }
-) as ModelDefined<AuthDocument, AuthUserRegistrationAttributes> & AuthModelMethods;
+) as ModelDefined<RegisterData, AuthUserRegistrationAttributes> & AuthModelMethods;
 
 AuthModel.addHook('beforeCreate', async (auth: Model) => {
   const hashedPassword: string = await hash(auth.dataValues.password as string, SALT_ROUND);

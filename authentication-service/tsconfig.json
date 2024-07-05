@@ -31,7 +31,8 @@
       "@models/*": ["src/models/*"],
       "@queues/*": ["src/queues/*"],
       "@routes/*": ["src/routes/*"],
-      "@schema/*": ["src/schema/*"]
+      "@schema/*": ["src/schema/*"],
+      "@helpers/*": ["src/helpers/*"]
     }
   }
 }

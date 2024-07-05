@@ -1,12 +1,12 @@
 import express, { Router } from 'express';
-import { Register } from '@controllers/register';
-import { Login } from '@controllers/login';
+import { register } from '@controllers/register';
+import { login } from '@controllers/login';
 
 const router: Router = express.Router();
 
 export function authRoutes(): Router {
-  router.post('/register', Register);
-  router.post('/login', Login);
+  router.post('/register', register);
+  router.post('/login', login);
 
   return router;
 }
