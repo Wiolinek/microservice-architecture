@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { LoginFormValues, RegisterFormValues, Response } from '@features/authentication/interfaces/interfaces';
+import { LoginFormValues, RegisterFormValues, Response } from '@interfaces/auth';
 
 const BASE_ENDPOINT = 'http://localhost:4000';
 

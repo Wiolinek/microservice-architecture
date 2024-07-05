@@ -4,7 +4,7 @@ import { LoginFormSchema } from '@features/authentication/schema/loginFormSchema
 import { RegisterFormSchema } from '@features/authentication/schema/registerFormSchema';
 import { AddRideFormSchema } from '@features/authentication/schema/addRideFormSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormProps } from '@components/form/interfaces';
+import { FormProps } from '@interfaces/rides';
 
 const Form = ({ formType, formSchema, defaultValues }: FormProps) => {
   const methods = useForm<LoginFormSchema | RegisterFormSchema | AddRideFormSchema>({

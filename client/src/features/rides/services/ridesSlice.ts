@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Ride } from '@pages/Ride';
-import { AddRidePayload, BookRidePayload } from '@features/authentication/interfaces/interfaces';
+import { AddRidePayload, BookRidePayload } from '@interfaces/rides';
 
 const BASE_ENDPOINT = 'http://localhost:4000/api/v1/api-gateway/';
 
