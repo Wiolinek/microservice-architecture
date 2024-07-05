@@ -1,16 +1,16 @@
 import express, { Router } from 'express';
-import { Rides } from '@controllers/rides';
-import { Ride } from '@controllers/ride';
-import { AddRide } from '@controllers/addRide';
-import { BookRide } from '@controllers/bookRide';
+import { rides } from '@controllers/rides';
+import { rideById } from '@controllers/ride';
+import { addRide } from '@controllers/addRide';
+import { bookRide } from '@controllers/bookRide';
 
 const router: Router = express.Router();
 
 export function ridesRoutes(): Router {
-  router.get('/rides', Rides);
-  router.get('/rides/:rideId', Ride);
-  router.post('/add-ride', AddRide);
-  router.put('/booking/:rideId', BookRide);
+  router.get('/rides', rides);
+  router.get('/rides/:rideId', rideById);
+  router.post('/add-ride', addRide);
+  router.put('/booking/:rideId', bookRide);
 
   return router;
 }
